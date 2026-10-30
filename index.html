@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F7F0E8">
-  <meta name="description" content="Portfolio créatif de Salomé Cros, étudiante en communication à l'ISCOM.">
+  <meta name="description" content="Portfolio de Salomé Cros, étudiante en Master 1 communication à l'ISCOM, spécialisée en événementiel, influence et réputation.">
   <title>Salomé Cros — Portfolio Créatif</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+
   <div class="intro-screen" id="intro-screen">
     <span class="intro-edition" data-fr="SC® / ÉDITION N° 01" data-en="SC® / ISSUE NO. 01">SC® / ÉDITION N° 01</span>
     <div class="intro-center">
@@ -27,7 +28,8 @@
   <div class="scroll-progress" id="scroll-progress"></div>
 
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="Salomé Cros">SC<span>®</span></a>
+    <a class="brand" href="#home" aria-label="Salomé Cros — Accueil">SC<span>®</span></a>
+
     <nav class="desktop-nav" aria-label="Navigation">
       <a href="#home" data-fr="ACCUEIL" data-en="HOME">ACCUEIL</a>
       <a href="#about" data-fr="À PROPOS" data-en="ABOUT">À PROPOS</a>
@@ -36,12 +38,14 @@
       <a href="#skills" data-fr="COMPÉTENCES" data-en="SKILLS">COMPÉTENCES</a>
       <a href="#contact">CONTACT</a>
     </nav>
+
     <div class="header-actions">
-      <div class="language-switch">
-        <button class="lang-btn active" data-lang="fr" type="button" aria-pressed="true">FR</button>
+      <div class="language-switch" role="group" aria-label="Choisir la langue">
+        <button class="lang-btn active" type="button" data-lang="fr" aria-pressed="true">FR</button>
         <span>/</span>
-        <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+        <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
+
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
     </div>
   </header>
@@ -56,6 +60,7 @@
   </nav>
 
   <main>
+
     <section class="hero" id="home">
       <div class="hero-topline">
         <span data-fr="L'ÉDITION CRÉATIVE" data-en="THE CREATIVE EDITION">L'ÉDITION CRÉATIVE</span>
@@ -64,6 +69,7 @@
 
       <div class="hero-title-wrap">
         <p class="hero-eyebrow" data-fr="ENCHANTÉE, MOI C'EST" data-en="NICE TO MEET YOU, I'M">ENCHANTÉE, MOI C'EST</p>
+
         <h1 class="hero-title">
           <span class="title-line title-first">SALOMÉ</span>
           <span class="title-line title-last">CROS<span class="title-dot">.</span></span>
@@ -75,17 +81,18 @@
           <span class="tiny-label" data-fr="01 — MON UNIVERS" data-en="01 — MY WORLD">01 — MON UNIVERS</span>
           <div class="note-star" aria-hidden="true">✳</div>
           <p data-fr="COMMUNICATION, ÉVÉNEMENTIEL ET UNE ENVIE DE CRÉER." data-en="COMMUNICATION, EVENTS AND A DESIRE TO CREATE.">COMMUNICATION, ÉVÉNEMENTIEL ET UNE ENVIE DE CRÉER.</p>
-          <span class="note-arrow">↗</span>
+          <span class="note-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="cover-frame" id="cover-frame">
           <div class="cover-photo">
-            <img src="images/photo-accueil.jpg" alt="Photo de couverture de Salomé Cros">
+            <img src="images/photo-accueil.jpg" alt="Photo de couverture du portfolio de Salomé Cros">
             <div class="cover-gradient"></div>
             <span class="cover-vertical" data-fr="SALOMÉ CROS — ÉDITION CRÉATIVE" data-en="SALOMÉ CROS — CREATIVE EDITION">SALOMÉ CROS — ÉDITION CRÉATIVE</span>
             <span class="cover-issue" data-fr="N° 001" data-en="NO. 001">N° 001</span>
             <span class="cover-stamp">SC<br>✳</span>
           </div>
+
           <div class="cover-caption">
             <span data-fr="FIG. 01 — LA COMMUNICATION À MA FAÇON" data-en="FIG. 01 — COMMUNICATION MY WAY">FIG. 01 — LA COMMUNICATION À MA FAÇON</span>
             <span>© 2026</span>
@@ -94,12 +101,15 @@
 
         <div class="hero-right-note">
           <span class="tiny-label" data-fr="MASTER 1 COMMUNICATION · ISCOM" data-en="MASTER'S YEAR 1 · ISCOM">MASTER 1 COMMUNICATION · ISCOM</span>
+
           <div class="hero-quote">
             <span data-fr="DONNER VIE" data-en="BRINGING">DONNER VIE</span>
             <em data-fr="AUX IDÉES." data-en="IDEAS TO LIFE.">AUX IDÉES.</em>
           </div>
+
           <p data-fr="ÉVÉNEMENTIEL · INFLUENCE · COMMUNICATION" data-en="EVENTS · INFLUENCE · COMMUNICATION">ÉVÉNEMENTIEL · INFLUENCE · COMMUNICATION</p>
-          <a class="round-arrow" href="#about" aria-label="Découvrir la suite" data-aria-fr="Découvrir la suite" data-aria-en="Explore more">↘</a>
+
+          <a href="#about" class="round-arrow" aria-label="Découvrir la suite" data-aria-fr="Découvrir la suite" data-aria-en="Explore more">↘</a>
         </div>
       </div>
 
@@ -116,46 +126,122 @@
       </div>
     </div>
 
-    <section class="about section-pad" id="about">
-      <div class="section-meta reveal">
-        <span data-fr="02 / À PROPOS" data-en="02 / ABOUT ME">02 / À PROPOS</span>
-        <span data-fr="DERRIÈRE LES IDÉES" data-en="BEHIND THE IDEAS">DERRIÈRE LES IDÉES</span>
-      </div>
+    
+<section class="about section-pad" id="about">
+  <div class="section-meta reveal">
+    <span data-fr="02 / LE PORTRAIT" data-en="02 / THE PORTRAIT">02 / LE PORTRAIT</span>
+    <span>THE CREATIVE EDITION ®</span>
+  </div>
 
-      <div class="about-grid">
-        <div class="about-heading reveal">
-          <p class="mini-heading" data-fr="FAISONS CONNAISSANCE" data-en="LET'S GET ACQUAINTED">FAISONS CONNAISSANCE</p>
-          <h2>
-            <span data-fr="PLUS" data-en="MORE">PLUS</span><br>
-            <em data-fr="QU'UN" data-en="THAN JUST">QU'UN</em><br>
-            <span data-fr="NOM." data-en="A NAME.">NOM.</span>
-          </h2>
-          <div class="about-asterisk" aria-hidden="true">✳</div>
+  <div class="about-magazine">
+    <div class="about-magazine-header reveal">
+      <div class="about-magazine-number">N° 002 / SC®</div>
+
+      <h2 class="about-magazine-title">
+        <span>BEHIND</span>
+        <em>the ideas.</em>
+      </h2>
+
+      <p data-fr="UN PEU PLUS SUR MOI ✳" data-en="A LITTLE MORE ABOUT ME ✳">
+        UN PEU PLUS SUR MOI ✳
+      </p>
+    </div>
+
+    <div class="about-magazine-layout">
+      <div class="about-magazine-photo reveal">
+        <div class="about-magazine-photo-frame">
+          <img
+            src="images/photo-salome.jpg"
+            alt="Portrait de Salomé Cros"
+            loading="lazy"
+          >
+
+          <span class="about-magazine-photo-label">SC® / PORTRAIT 001</span>
         </div>
 
-        <div class="about-content reveal">
-          <span class="about-number">( 01 — 03 )</span>
-          <div class="about-portrait">
-            <div class="about-portrait-image">
-              <img src="images/photo-salome.jpg" alt="Portrait de Salomé Cros" loading="lazy">
-              <span class="about-portrait-sticker" data-fr="COUCOU ✳" data-en="HELLO ✳">COUCOU ✳</span>
-            </div>
-            <div class="about-portrait-caption">
-              <span data-fr="FIG. 02 — MOI, TOUT SIMPLEMENT" data-en="FIG. 02 — ME, MYSELF & I">FIG. 02 — MOI, TOUT SIMPLEMENT</span>
-              <span>SC / 2026</span>
-            </div>
-          </div>
+        <div class="about-magazine-photo-caption">
+          <span>FIG. 02 — SALOMÉ CROS</span>
+          <span>© 2026</span>
+        </div>
 
-          <h3 data-fr="Hello, moi c'est Salomé !" data-en="Hello, I'm Salomé!">Hello, moi c'est Salomé !</h3>
-          <p data-fr="Actuellement en Master 1 communication à l'ISCOM, dans le parcours événementiel, influence et réputation, je construis mon expérience au croisement de la création de contenu et de la communication." data-en="I'm currently in the first year of my Master's in Communication at ISCOM, specialising in events, influence and reputation. I'm building my experience across content creation and communication.">Actuellement en Master 1 communication à l'ISCOM, dans le parcours événementiel, influence et réputation, je construis mon expérience au croisement de la création de contenu et de la communication.</p>
-          <p data-fr="Mon parcours m'a déjà permis de découvrir le community management, les shootings, les événements, les relations presse et le contact avec les clients. Aujourd'hui, je souhaite poursuivre cette aventure dans l'événementiel et la communication." data-en="My experience has introduced me to community management, photo shoots, events, press relations and customer-facing roles. I'm now looking to continue this journey in events and communication.">Mon parcours m'a déjà permis de découvrir le community management, les shootings, les événements, les relations presse et le contact avec les clients. Aujourd'hui, je souhaite poursuivre cette aventure dans l'événementiel et la communication.</p>
-          <div class="about-signature">
-            <span>Salomé Cros</span>
-            <span data-fr="À TRÈS VITE, SC ✳" data-en="SEE YOU SOON, SC ✳">À TRÈS VITE, SC ✳</span>
-          </div>
+        <span class="about-magazine-photo-star" aria-hidden="true">✳</span>
+      </div>
+
+      <div class="about-magazine-copy reveal">
+        <div class="about-magazine-topline">
+          <span>GET TO KNOW ME</span>
+          <span>01 / 03</span>
+        </div>
+
+        <span class="about-magazine-quote-mark" aria-hidden="true">“</span>
+
+        <h3>
+          <span data-fr="Créer des idées," data-en="Creating ideas,">Créer des idées,</span>
+          <em data-fr="raconter des histoires." data-en="telling stories.">
+            raconter des histoires.
+          </em>
+        </h3>
+
+        <p
+          class="about-magazine-lead"
+          data-fr="Moi, c'est Salomé. Passionnée par la communication, la créativité et les univers qui ont une histoire à raconter."
+          data-en="I'm Salomé. Passionate about communication, creativity and brands with stories worth telling."
+        >
+          Moi, c'est Salomé. Passionnée par la communication, la créativité et les univers qui ont une histoire à raconter.
+        </p>
+
+        <p
+          data-fr="Actuellement en Master 1 communication à l'ISCOM, dans le parcours événementiel, influence et réputation, je développe mes compétences à travers des projets concrets et mon alternance chez Cymbeline Forever."
+          data-en="Currently in the first year of my Master's in Communication at ISCOM, specialising in events, influence and reputation, I'm building my skills through hands-on projects and my apprenticeship at Cymbeline Forever."
+        >
+          Actuellement en Master 1 communication à l'ISCOM, dans le parcours événementiel, influence et réputation, je développe mes compétences à travers des projets concrets et mon alternance chez Cymbeline Forever.
+        </p>
+
+        <p
+          data-fr="J'aime imaginer des contenus, participer à des événements et donner vie à des projets. Chaque expérience est pour moi une nouvelle occasion d'apprendre, de rencontrer et de créer."
+          data-en="I love imagining content, taking part in events and bringing projects to life. Every experience is an opportunity to learn, meet people and create."
+        >
+          J'aime imaginer des contenus, participer à des événements et donner vie à des projets. Chaque expérience est pour moi une nouvelle occasion d'apprendre, de rencontrer et de créer.
+        </p>
+
+        <div class="about-magazine-tags">
+          <span>COMMUNICATION</span>
+          <span data-fr="ÉVÉNEMENTIEL" data-en="EVENTS">ÉVÉNEMENTIEL</span>
+          <span>INFLUENCE</span>
+          <span data-fr="CRÉATIVITÉ" data-en="CREATIVITY">CRÉATIVITÉ</span>
+        </div>
+
+        <a
+          class="cv-download"
+          href="documents/cv-salome-cros.pdf"
+          download="CV-Salome-Cros.pdf"
+        >
+          <span class="cv-download-text">
+            <strong data-fr="TÉLÉCHARGER MON CV" data-en="DOWNLOAD MY RESUME">
+              TÉLÉCHARGER MON CV
+            </strong>
+            <small>CURRICULUM VITAE / PDF</small>
+          </span>
+
+          <span class="cv-download-icon" aria-hidden="true">↓</span>
+        </a>
+
+        <div class="about-magazine-signature">
+          <span>Salomé Cros</span>
+          <span>SC® — 2026</span>
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="about-magazine-bottom reveal">
+      <span>THE GIRL BEHIND THE IDEAS ✳</span>
+      <span data-fr="LA SUITE DE MON HISTOIRE JUSTE EN DESSOUS ↓" data-en="THE REST OF MY STORY BELOW ↓">
+        LA SUITE DE MON HISTOIRE JUSTE EN DESSOUS ↓
+      </span>
+    </div>
+  </div>
+</section>
+
 
     <section class="journey section-pad" id="experience">
       <div class="section-meta reveal">
@@ -165,16 +251,23 @@
 
       <div class="journey-heading reveal">
         <p class="mini-heading" data-fr="LES CHAPITRES DE MON PARCOURS" data-en="THE CHAPTERS OF MY JOURNEY">LES CHAPITRES DE MON PARCOURS</p>
+
         <h2>
           <span data-fr="MON" data-en="MY">MON</span><br>
           <em data-fr="HISTOIRE" data-en="STORY">HISTOIRE</em><span>.</span>
         </h2>
-        <p data-fr="De mes premières expériences commerciales à la communication et à l'événementiel, chaque expérience m'aide à construire mon parcours." data-en="From my first retail roles to communication and events, every experience is helping me shape my career.">De mes premières expériences commerciales à la communication et à l'événementiel, chaque expérience m'aide à construire mon parcours.</p>
+
+        <p
+          data-fr="De mes premières expériences commerciales à la communication et à l'événementiel, chaque expérience m'aide à construire mon parcours."
+          data-en="From my first retail roles to communication and events, every experience is helping me shape my career."
+        >
+          De mes premières expériences commerciales à la communication et à l'événementiel, chaque expérience m'aide à construire mon parcours.
+        </p>
       </div>
 
       <article class="bridal-experience reveal">
-        <span class="bridal-ornament bridal-ornament-left" aria-hidden="true">✳</span>
-        <span class="bridal-ornament bridal-ornament-right" aria-hidden="true">✧</span>
+        <div class="bridal-ornament bridal-ornament-left" aria-hidden="true">✳</div>
+        <div class="bridal-ornament bridal-ornament-right" aria-hidden="true">✧</div>
 
         <div class="bridal-top">
           <span data-fr="CHAPITRE 01 / EXPÉRIENCE ACTUELLE" data-en="CHAPTER 01 / CURRENT EXPERIENCE">CHAPITRE 01 / EXPÉRIENCE ACTUELLE</span>
@@ -185,10 +278,18 @@
           <div class="bridal-brand">
             <div class="bridal-brand-inner">
               <span class="bridal-eyebrow" data-fr="L'UNIVERS DU MARIAGE" data-en="THE WORLD OF BRIDAL FASHION">L'UNIVERS DU MARIAGE</span>
+
               <div class="bridal-logo-frame">
-                <img class="bridal-logo" src="images/logo-cymbeline.png" alt="Logo Cymbeline" loading="lazy">
+                <img
+                  class="bridal-logo"
+                  src="images/logo-cymbeline.png"
+                  alt="Logo Cymbeline Forever"
+                  loading="lazy"
+                >
               </div>
+
               <span class="bridal-brand-star" aria-hidden="true">✦</span>
+
               <div class="bridal-brand-bottom">
                 <span>CYMBELINE FOREVER</span>
                 <span>PARIS / FRANCE</span>
@@ -201,21 +302,55 @@
               <span class="bridal-current-dot"></span>
               <span data-fr="MON ALTERNANCE ACTUELLE" data-en="MY CURRENT APPRENTICESHIP">MON ALTERNANCE ACTUELLE</span>
             </div>
-            <h3 class="bridal-title"><span>CYMBELINE</span><em>Forever.</em></h3>
-            <p class="bridal-position" data-fr="Alternante assistante communication" data-en="Communications Assistant — Apprenticeship">Alternante assistante communication</p>
-            <div class="bridal-divider"><span>✧</span></div>
-            <p class="bridal-description" data-fr="Au cœur de l'univers du mariage, je participe à la communication de Cymbeline Forever : création de contenus, animation de communauté, relations presse et événements. Une expérience où créativité, image de marque et émotion se rencontrent." data-en="At the heart of the bridal world, I contribute to Cymbeline Forever's communication through content creation, community management, press relations and events. An experience where creativity, brand identity and emotion come together.">Au cœur de l'univers du mariage, je participe à la communication de Cymbeline Forever : création de contenus, animation de communauté, relations presse et événements. Une expérience où créativité, image de marque et émotion se rencontrent.</p>
+
+            <h3 class="bridal-title">
+              <span>CYMBELINE</span>
+              <em>Forever.</em>
+            </h3>
+
+            <p
+              class="bridal-position"
+              data-fr="Alternante assistante communication"
+              data-en="Communications Assistant — Apprenticeship"
+            >
+              Alternante assistante communication
+            </p>
+
+            <div class="bridal-divider">
+              <span>✧</span>
+            </div>
+
+            <p
+              class="bridal-description"
+              data-fr="Au cœur de l'univers du mariage, je participe à la communication de Cymbeline Forever : création de contenus, animation de communauté, relations presse et événements. Une expérience où créativité, image de marque et émotion se rencontrent."
+              data-en="At the heart of the bridal world, I contribute to Cymbeline Forever's communication through content creation, community management, press relations and events. An experience where creativity, brand identity and emotion come together."
+            >
+              Au cœur de l'univers du mariage, je participe à la communication de Cymbeline Forever : création de contenus, animation de communauté, relations presse et événements. Une expérience où créativité, image de marque et émotion se rencontrent.
+            </p>
+
             <div class="bridal-tags">
               <span data-fr="CRÉATION DE CONTENU" data-en="CONTENT CREATION">CRÉATION DE CONTENU</span>
               <span data-fr="ÉVÉNEMENTIEL" data-en="EVENTS">ÉVÉNEMENTIEL</span>
               <span data-fr="RELATIONS PRESSE" data-en="PRESS RELATIONS">RELATIONS PRESSE</span>
             </div>
 
+            <button
+              class="bridal-gallery-link"
+              id="bridal-gallery-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="cymbeline-gallery"
+            >
+              <span data-fr="DÉCOUVRIR LES COULISSES" data-en="EXPLORE BEHIND THE SCENES">DÉCOUVRIR LES COULISSES</span>
+              <span class="bridal-gallery-link-arrow" aria-hidden="true">↗</span>
+            </button>
+
             <details class="bridal-details">
               <summary>
                 <span data-fr="DÉCOUVRIR MES MISSIONS" data-en="DISCOVER MY RESPONSIBILITIES">DÉCOUVRIR MES MISSIONS</span>
                 <span class="bridal-details-icon" aria-hidden="true">+</span>
               </summary>
+
               <div class="bridal-details-body">
                 <ul>
                   <li data-fr="Community management et animation de communauté" data-en="Community management and engagement">Community management et animation de communauté</li>
@@ -235,6 +370,80 @@
         </div>
       </article>
 
+      <section class="cymbeline-gallery" id="cymbeline-gallery" hidden aria-label="Coulisses de Cymbeline Forever">
+        <div class="cymbeline-gallery-heading reveal">
+          <div>
+            <span class="cymbeline-gallery-kicker">CYMBELINE FOREVER / THE BRIDAL DIARY</span>
+            <h3>
+              <span data-fr="DANS LES" data-en="BEHIND">DANS LES</span>
+              <em data-fr="COULISSES." data-en="THE SCENES.">COULISSES.</em>
+            </h3>
+          </div>
+
+          <p
+            data-fr="Des instants de shootings, de défilés et de création de contenu au cœur de l'univers Cymbeline."
+            data-en="Moments from photo shoots, fashion shows and content creation in the world of Cymbeline."
+          >
+            Des instants de shootings, de défilés et de création de contenu au cœur de l'univers Cymbeline.
+          </p>
+        </div>
+
+        <div class="cymbeline-gallery-grid">
+          <figure class="cymbeline-gallery-item cymbeline-gallery-item-1 reveal">
+            <img src="images/cymbe1.jpg" alt="Création de contenu pendant un shooting Cymbeline" loading="lazy">
+            <figcaption>
+              <span>01 / CONTENT CREATION</span>
+              <span>↗</span>
+            </figcaption>
+          </figure>
+
+          <figure class="cymbeline-gallery-item cymbeline-gallery-item-2 reveal">
+            <img src="images/cymbe2.jpg" alt="Deux mannequins portant des robes blanches dans les coulisses d'un défilé" loading="lazy">
+            <figcaption>
+              <span>02 / BACKSTAGE</span>
+              <span>↗</span>
+            </figcaption>
+          </figure>
+
+          <figure class="cymbeline-gallery-item cymbeline-gallery-item-3 reveal">
+            <img src="images/cymbe3.JPG" alt="Défilé de mode avec cinq mannequins en tenues blanches" loading="lazy">
+            <figcaption>
+              <span>03 / RUNWAY</span>
+              <span>↗</span>
+            </figcaption>
+          </figure>
+
+          <figure class="cymbeline-gallery-item cymbeline-gallery-item-4 reveal">
+            <img src="images/cymbe4.jpg" alt="Mannequins en tenues blanches devant un rideau noir" loading="lazy">
+            <figcaption>
+              <span>04 / THE SHOW</span>
+              <span>↗</span>
+            </figcaption>
+          </figure>
+
+          <figure class="cymbeline-gallery-item cymbeline-gallery-item-5 reveal">
+            <img src="images/cymbe5.jpg" alt="Robe de mariée Cymbeline présentée à la Barcelona Bridal Fashion Week" loading="lazy">
+            <figcaption>
+              <span>05 / BRIDAL FASHION</span>
+              <span>↗</span>
+            </figcaption>
+          </figure>
+
+          <figure class="cymbeline-gallery-item cymbeline-gallery-item-6 reveal">
+            <img src="images/cymbe6.JPG" alt="Mannequin présentant une robe de mariée en dentelle sur le podium" loading="lazy">
+            <figcaption>
+              <span>06 / FINAL LOOK</span>
+              <span>↗</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="cymbeline-gallery-footer">
+          <span>THE BRIDAL DIARY — CYMBELINE FOREVER</span>
+          <span>01 — 06 / SC®</span>
+        </div>
+      </section>
+
       <div class="experience-history reveal">
         <div class="history-heading">
           <span data-fr="LES AUTRES CHAPITRES" data-en="PREVIOUS CHAPTERS">LES AUTRES CHAPITRES</span>
@@ -248,8 +457,14 @@
             <span class="history-type" data-fr="Stage en communication" data-en="Communications Internship">Stage en communication</span>
             <span class="history-arrow">↗</span>
           </summary>
+
           <div class="history-body">
-            <p data-fr="Assistance aux shootings de Boycott Magazine, création de supports de communication et emailing." data-en="Assisted with Boycott Magazine photo shoots, created communication materials and worked on email campaigns.">Assistance aux shootings de Boycott Magazine, création de supports de communication et emailing.</p>
+            <p
+              data-fr="Assistance aux shootings de Boycott Magazine, création de supports de communication et emailing."
+              data-en="Assisted with Boycott Magazine photo shoots, created communication materials and worked on email campaigns."
+            >
+              Assistance aux shootings de Boycott Magazine, création de supports de communication et emailing.
+            </p>
           </div>
         </details>
 
@@ -260,6 +475,7 @@
             <span class="history-type" data-fr="Hôtesse de caisse" data-en="Cashier">Hôtesse de caisse</span>
             <span class="history-arrow">↗</span>
           </summary>
+
           <div class="history-body">
             <p data-fr="Encaissement et accueil des clients." data-en="Checkout operations and customer service.">Encaissement et accueil des clients.</p>
           </div>
@@ -272,8 +488,14 @@
             <span class="history-type" data-fr="Conseillère vendeuse · CDD" data-en="Sales Assistant · Fixed-term Contract">Conseillère vendeuse · CDD</span>
             <span class="history-arrow">↗</span>
           </summary>
+
           <div class="history-body">
-            <p data-fr="Merchandising, conseil client, animation commerciale et participation aux objectifs de vente." data-en="Merchandising, customer advice, sales activities and contributing to sales targets.">Merchandising, conseil client, animation commerciale et participation aux objectifs de vente.</p>
+            <p
+              data-fr="Merchandising, conseil client, animation commerciale et participation aux objectifs de vente."
+              data-en="Merchandising, customer advice, sales activities and contributing to sales targets."
+            >
+              Merchandising, conseil client, animation commerciale et participation aux objectifs de vente.
+            </p>
           </div>
         </details>
 
@@ -284,8 +506,14 @@
             <span class="history-type" data-fr="Stage en vente" data-en="Retail Internship">Stage en vente</span>
             <span class="history-arrow">↗</span>
           </summary>
+
           <div class="history-body">
-            <p data-fr="Merchandising, accueil des clients, gestion des stocks, réassort et organisation des cabines d'essayage." data-en="Merchandising, customer welcome, stock management, restocking and fitting room organisation.">Merchandising, accueil des clients, gestion des stocks, réassort et organisation des cabines d'essayage.</p>
+            <p
+              data-fr="Merchandising, accueil des clients, gestion des stocks, réassort et organisation des cabines d'essayage."
+              data-en="Merchandising, customer welcome, stock management, restocking and fitting room organisation."
+            >
+              Merchandising, accueil des clients, gestion des stocks, réassort et organisation des cabines d'essayage.
+            </p>
           </div>
         </details>
       </div>
@@ -301,18 +529,30 @@
             <span>2025 — 2027</span>
             <div>
               <h4>ISCOM</h4>
-              <p data-fr="Master communication · Événementiel, influence et réputation" data-en="Master's in Communication · Events, Influence and Reputation">Master communication · Événementiel, influence et réputation</p>
+              <p
+                data-fr="Master communication · Événementiel, influence et réputation"
+                data-en="Master's in Communication · Events, Influence and Reputation"
+              >
+                Master communication · Événementiel, influence et réputation
+              </p>
             </div>
             <span>01 ↗</span>
           </article>
+
           <article class="education-item">
             <span>2022 — 2025</span>
             <div>
               <h4 data-fr="BUT TECHNIQUES DE COMMERCIALISATION" data-en="BACHELOR'S DEGREE IN MARKETING & SALES">BUT TECHNIQUES DE COMMERCIALISATION</h4>
-              <p data-fr="IUT Sénart-Fontainebleau · Communication, marketing, vente · Stratégie de marque et événementiel" data-en="IUT Sénart-Fontainebleau · Communication, Marketing, Sales · Brand Strategy and Events">IUT Sénart-Fontainebleau · Communication, marketing, vente · Stratégie de marque et événementiel</p>
+              <p
+                data-fr="IUT Sénart-Fontainebleau · Communication, marketing, vente · Stratégie de marque et événementiel"
+                data-en="IUT Sénart-Fontainebleau · Communication, Marketing, Sales · Brand Strategy and Events"
+              >
+                IUT Sénart-Fontainebleau · Communication, marketing, vente · Stratégie de marque et événementiel
+              </p>
             </div>
             <span>02 ↗</span>
           </article>
+
           <article class="education-item">
             <span>2020 — 2022</span>
             <div>
@@ -323,30 +563,6 @@
           </article>
         </div>
       </div>
-    </section>
-
-    <section class="inspiration-gallery" aria-label="Inspirations visuelles">
-      <div class="gallery-header reveal">
-        <span data-fr="MON CARNET D'INSPIRATIONS" data-en="MY INSPIRATION DIARY">MON CARNET D'INSPIRATIONS</span>
-        <span>THE VISUAL EDITION / 2026</span>
-      </div>
-      <div class="gallery-layout">
-        <figure class="gallery-photo gallery-photo-main reveal">
-          <img src="images/photo-mode.jpg" alt="Photographie d'inspiration mode et mariage" loading="lazy">
-          <figcaption data-fr="01 / MODE & ÉMOTION" data-en="01 / FASHION & EMOTION">01 / MODE & ÉMOTION</figcaption>
-        </figure>
-        <div class="gallery-side">
-          <figure class="gallery-photo reveal">
-            <img src="images/photo-creation.jpg" alt="Inspiration communication et photographie" loading="lazy">
-            <figcaption data-fr="02 / CRÉATIVITÉ" data-en="02 / CREATIVITY">02 / CRÉATIVITÉ</figcaption>
-          </figure>
-          <figure class="gallery-photo reveal">
-            <img src="images/photo-couture.jpg" alt="Photographie d'inspiration couture et mariage" loading="lazy">
-            <figcaption data-fr="03 / DÉTAILS COUTURE" data-en="03 / COUTURE DETAILS">03 / DÉTAILS COUTURE</figcaption>
-          </figure>
-        </div>
-      </div>
-      <p class="gallery-note" data-fr="IMAGES D'INSPIRATION — CRÉDITS PHOTOGRAPHIQUES : UNSPLASH" data-en="INSPIRATION IMAGES — PHOTO CREDITS: UNSPLASH">IMAGES D'INSPIRATION — CRÉDITS PHOTOGRAPHIQUES : UNSPLASH</p>
     </section>
 
     <section class="work section-pad" id="work">
@@ -361,6 +577,7 @@
           <em data-fr="PROJETS" data-en="CREATIVE">PROJETS</em><br>
           <span data-fr="CRÉATIFS." data-en="FILES.">CRÉATIFS.</span>
         </h2>
+
         <p data-fr="Un espace pour partager mes projets, mes idées et mes réalisations en communication." data-en="A space to share my communication projects, ideas and creative work.">Un espace pour partager mes projets, mes idées et mes réalisations en communication.</p>
       </div>
 
@@ -368,13 +585,19 @@
         <article class="project project-one reveal">
           <div class="project-visual visual-one">
             <span class="visual-corner" data-fr="DOSSIER CRÉATIF 001" data-en="CREATIVE FILE 001">DOSSIER CRÉATIF 001</span>
+
             <div class="visual-main">
               <small data-fr="L'ART DES" data-en="THE ART OF">L'ART DES</small>
-              <strong><span data-fr="BONNES" data-en="GOOD">BONNES</span><br><em data-fr="IDÉES." data-en="IDEAS.">IDÉES.</em></strong>
+              <strong>
+                <span data-fr="BONNES" data-en="GOOD">BONNES</span><br>
+                <em data-fr="IDÉES." data-en="IDEAS.">IDÉES.</em>
+              </strong>
               <span aria-hidden="true">✳</span>
             </div>
+
             <span class="visual-bottom" data-fr="LA PROCHAINE IDÉE COMMENCE ICI ↗" data-en="YOUR NEXT BIG IDEA STARTS HERE ↗">LA PROCHAINE IDÉE COMMENCE ICI ↗</span>
           </div>
+
           <div class="project-info">
             <span data-fr="01 / CAMPAGNE" data-en="01 / CAMPAIGN">01 / CAMPAGNE</span>
             <h3 data-fr="Campagne créative" data-en="Creative campaign">Campagne créative</h3>
@@ -385,13 +608,19 @@
         <article class="project project-two reveal">
           <div class="project-visual visual-two">
             <span class="visual-corner" data-fr="DOSSIER CRÉATIF 002" data-en="CREATIVE FILE 002">DOSSIER CRÉATIF 002</span>
+
             <div class="visual-main">
               <small data-fr="CRÉER SON PROPRE" data-en="CREATE YOUR OWN">CRÉER SON PROPRE</small>
-              <strong><span data-fr="UNIVERS" data-en="VISUAL">UNIVERS</span><br><em data-fr="VISUEL." data-en="WORLD.">VISUEL.</em></strong>
+              <strong>
+                <span data-fr="UNIVERS" data-en="VISUAL">UNIVERS</span><br>
+                <em data-fr="VISUEL." data-en="WORLD.">VISUEL.</em>
+              </strong>
               <span aria-hidden="true">✳</span>
             </div>
+
             <span class="visual-bottom" data-fr="COULEUR / TYPO / ÉMOTION ↗" data-en="COLOUR / TYPE / FEELING ↗">COULEUR / TYPO / ÉMOTION ↗</span>
           </div>
+
           <div class="project-info">
             <span data-fr="02 / IDENTITÉ VISUELLE" data-en="02 / VISUAL IDENTITY">02 / IDENTITÉ VISUELLE</span>
             <h3 data-fr="Identité visuelle" data-en="Visual identity">Identité visuelle</h3>
@@ -402,13 +631,19 @@
         <article class="project project-three reveal">
           <div class="project-visual visual-three">
             <span class="visual-corner" data-fr="DOSSIER CRÉATIF 003" data-en="CREATIVE FILE 003">DOSSIER CRÉATIF 003</span>
+
             <div class="visual-main">
               <small data-fr="PENSÉ POUR" data-en="MAKE IT">PENSÉ POUR</small>
-              <strong><span data-fr="LES" data-en="SOCIAL">LES</span><br><em data-fr="RÉSEAUX." data-en="FIRST.">RÉSEAUX.</em></strong>
+              <strong>
+                <span data-fr="LES" data-en="SOCIAL">LES</span><br>
+                <em data-fr="RÉSEAUX." data-en="FIRST.">RÉSEAUX.</em>
+              </strong>
               <span aria-hidden="true">✳</span>
             </div>
+
             <span class="visual-bottom" data-fr="CONNECTER / CRÉER / INSPIRER ↗" data-en="CONNECT / CREATE / INSPIRE ↗">CONNECTER / CRÉER / INSPIRER ↗</span>
           </div>
+
           <div class="project-info">
             <span data-fr="03 / RÉSEAUX SOCIAUX" data-en="03 / SOCIAL MEDIA">03 / RÉSEAUX SOCIAUX</span>
             <h3 data-fr="Création de contenu" data-en="Content creation">Création de contenu</h3>
@@ -416,6 +651,7 @@
           </div>
         </article>
       </div>
+
       <p class="work-footnote" data-fr="ESPACE RÉSERVÉ À MES FUTURES RÉALISATIONS." data-en="SPACE FOR MY UPCOMING WORK.">ESPACE RÉSERVÉ À MES FUTURES RÉALISATIONS.</p>
     </section>
 
@@ -424,9 +660,15 @@
         <span data-fr="05 / MES COMPÉTENCES" data-en="05 / MY SKILLS">05 / MES COMPÉTENCES</span>
         <span data-fr="CRÉER, IMAGINER, COMMUNIQUER" data-en="CREATE, IMAGINE, COMMUNICATE">CRÉER, IMAGINER, COMMUNIQUER</span>
       </div>
+
       <div class="skills-head reveal">
         <p data-fr="MES DOMAINES D'EXPÉRIENCE" data-en="MY AREAS OF EXPERIENCE">MES DOMAINES D'EXPÉRIENCE</p>
-        <h2><span data-fr="L'ART DE" data-en="THE ART OF">L'ART DE</span><br><em data-fr="COMMUNIQUER." data-en="COMMUNICATION.">COMMUNIQUER.</em></h2>
+
+        <h2>
+          <span data-fr="L'ART DE" data-en="THE ART OF">L'ART DE</span><br>
+          <em data-fr="COMMUNIQUER." data-en="COMMUNICATION.">COMMUNIQUER.</em>
+        </h2>
+
         <p class="skills-intro" data-fr="Des expériences concrètes en communication, en événementiel et en création de contenu." data-en="Hands-on experience in communication, events and content creation.">Des expériences concrètes en communication, en événementiel et en création de contenu.</p>
       </div>
 
@@ -437,46 +679,55 @@
             <strong>Community management</strong>
             <span class="skill-plus">+</span>
           </button>
+
           <div class="skill-detail" id="skill-detail-1" hidden>
             <p data-fr="Animation de communauté, création de contenus, gestion de la présence en ligne et des pages Google Business chez Cymbeline Forever." data-en="Community engagement, content creation, online presence and Google Business profile management at Cymbeline Forever.">Animation de communauté, création de contenus, gestion de la présence en ligne et des pages Google Business chez Cymbeline Forever.</p>
           </div>
         </div>
+
         <div class="skill-item">
           <button class="skill-toggle" type="button" aria-expanded="false" aria-controls="skill-detail-2">
             <span class="skill-index">02</span>
             <strong data-fr="Création de contenu" data-en="Content creation">Création de contenu</strong>
             <span class="skill-plus">+</span>
           </button>
+
           <div class="skill-detail" id="skill-detail-2" hidden>
             <p data-fr="Création de contenus et de supports de communication, participation à des shootings et utilisation d'outils créatifs." data-en="Content and communication material creation, participation in photo shoots and use of creative tools.">Création de contenus et de supports de communication, participation à des shootings et utilisation d'outils créatifs.</p>
           </div>
         </div>
+
         <div class="skill-item">
           <button class="skill-toggle" type="button" aria-expanded="false" aria-controls="skill-detail-3">
             <span class="skill-index">03</span>
             <strong data-fr="Événementiel" data-en="Event management">Événementiel</strong>
             <span class="skill-plus">+</span>
           </button>
+
           <div class="skill-detail" id="skill-detail-3" hidden>
             <p data-fr="Participation à des défilés, salons et événements professionnels B to B et B to C." data-en="Participation in fashion shows, trade fairs and B2B/B2C professional events.">Participation à des défilés, salons et événements professionnels B to B et B to C.</p>
           </div>
         </div>
+
         <div class="skill-item">
           <button class="skill-toggle" type="button" aria-expanded="false" aria-controls="skill-detail-4">
             <span class="skill-index">04</span>
             <strong data-fr="Relations presse" data-en="Press relations">Relations presse</strong>
             <span class="skill-plus">+</span>
           </button>
+
           <div class="skill-detail" id="skill-detail-4" hidden>
             <p data-fr="Contribution à l'élaboration de dossiers de presse, de communiqués et de revues de presse." data-en="Contribution to press kits, press releases and press reviews.">Contribution à l'élaboration de dossiers de presse, de communiqués et de revues de presse.</p>
           </div>
         </div>
+
         <div class="skill-item">
           <button class="skill-toggle" type="button" aria-expanded="false" aria-controls="skill-detail-5">
             <span class="skill-index">05</span>
             <strong data-fr="Communication & marketing" data-en="Communication & marketing">Communication & marketing</strong>
             <span class="skill-plus">+</span>
           </button>
+
           <div class="skill-detail" id="skill-detail-5" hidden>
             <p data-fr="Des bases développées pendant mon BUT Techniques de commercialisation et renforcées à travers mes expériences professionnelles." data-en="Foundations developed during my marketing and sales degree, strengthened through my professional experience.">Des bases développées pendant mon BUT Techniques de commercialisation et renforcées à travers mes expériences professionnelles.</p>
           </div>
@@ -485,13 +736,19 @@
 
       <div class="tools-panel reveal">
         <span data-fr="MA BOÎTE À OUTILS" data-en="MY TOOLBOX">MA BOÎTE À OUTILS</span>
+
         <div class="tool-tags">
-          <span>Canva</span><span>Microsoft Office</span><span>CapCut</span><span>TikTok</span><span>Instagram</span>
+          <span>Canva</span>
+          <span>Microsoft Office</span>
+          <span>CapCut</span>
+          <span>TikTok</span>
+          <span>Instagram</span>
         </div>
       </div>
 
       <div class="interests-panel reveal">
         <span data-fr="EN DEHORS DES COURS" data-en="OUTSIDE THE CLASSROOM">EN DEHORS DES COURS</span>
+
         <div>
           <span data-fr="MODE" data-en="FASHION">MODE</span>
           <span data-fr="PHOTOGRAPHIE" data-en="PHOTOGRAPHY">PHOTOGRAPHIE</span>
@@ -513,12 +770,43 @@
 
       <div class="contact-inner reveal">
         <p class="contact-kicker" data-fr="UN PROJET ? UNE OPPORTUNITÉ ?" data-en="A PROJECT? AN OPPORTUNITY?">UN PROJET ? UNE OPPORTUNITÉ ?</p>
+
         <h2>
           <span data-fr="CRÉONS" data-en="LET'S">CRÉONS</span><br>
           <em data-fr="QUELQUE" data-en="CREATE">QUELQUE</em><br>
           <span data-fr="CHOSE." data-en="TOGETHER.">CHOSE.</span>
         </h2>
+
         <p class="contact-subtitle" data-fr="À la recherche de nouvelles opportunités dans la communication et l'événementiel. Échangeons !" data-en="Looking for new opportunities in communication and events. Let's connect!">À la recherche de nouvelles opportunités dans la communication et l'événementiel. Échangeons !</p>
+        
+<div class="contact-direct reveal">
+  <div class="contact-direct-text">
+    <span class="contact-direct-kicker">LET'S TALK ✳</span>
+
+    <h3>
+      <span data-fr="ON SE PARLE ?" data-en="LET'S TALK?">
+        ON SE PARLE ?
+      </span>
+    </h3>
+
+    <p
+      data-fr="Un projet, une collaboration ou une opportunité ? Je serais ravie d'échanger avec vous."
+      data-en="A project, a collaboration or an opportunity? I'd love to hear from you."
+    >
+      Un projet, une collaboration ou une opportunité ? Je serais ravie d'échanger avec vous.
+    </p>
+  </div>
+
+  <a
+    class="contact-email-button"
+    href="mailto:ADRESSE-EMAIL-ICI"
+  >
+    <span data-fr="M'ÉCRIRE UN MAIL" data-en="SEND ME AN EMAIL">
+      M'ÉCRIRE UN MAIL
+    </span>
+    <span aria-hidden="true">↗</span>
+  </a>
+</div>
 
         <div class="social-magazine">
           <div class="social-magazine-header">
@@ -529,13 +817,16 @@
           <div class="social-magazine-grid">
             <a class="social-card social-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <div class="social-card-top">
-                <span>01 / INSTAGRAM</span><span class="social-card-arrow">↗</span>
+                <span>01 / INSTAGRAM</span>
+                <span class="social-card-arrow">↗</span>
               </div>
+
               <div class="social-card-center">
                 <span class="social-card-deco" aria-hidden="true">✳</span>
                 <h3>Instagram<span>.</span></h3>
                 <p data-fr="MON UNIVERS EN IMAGES" data-en="MY VISUAL DIARY">MON UNIVERS EN IMAGES</p>
               </div>
+
               <div class="social-card-bottom">
                 <span data-fr="PHOTOS / CRÉATIVITÉ / INSPIRATION" data-en="PHOTOS / CREATIVITY / INSPIRATION">PHOTOS / CRÉATIVITÉ / INSPIRATION</span>
                 <span>SC®</span>
@@ -544,13 +835,16 @@
 
             <a class="social-card social-linkedin" href="https://www.linkedin.com/in/salom%C3%A9-cros-a581a2256/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <div class="social-card-top">
-                <span>02 / LINKEDIN</span><span class="social-card-arrow">↗</span>
+                <span>02 / LINKEDIN</span>
+                <span class="social-card-arrow">↗</span>
               </div>
+
               <div class="social-card-center">
                 <span class="social-card-deco" aria-hidden="true">✧</span>
                 <h3>LinkedIn<span>.</span></h3>
                 <p data-fr="MON PARCOURS PROFESSIONNEL" data-en="MY PROFESSIONAL JOURNEY">MON PARCOURS PROFESSIONNEL</p>
               </div>
+
               <div class="social-card-bottom">
                 <span data-fr="COMMUNICATION / EXPÉRIENCES" data-en="COMMUNICATION / EXPERIENCE">COMMUNICATION / EXPÉRIENCES</span>
                 <span>SC®</span>
@@ -559,13 +853,16 @@
 
             <a class="social-card social-tiktok" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
               <div class="social-card-top">
-                <span>03 / TIKTOK</span><span class="social-card-arrow">↗</span>
+                <span>03 / TIKTOK</span>
+                <span class="social-card-arrow">↗</span>
               </div>
+
               <div class="social-card-center">
                 <span class="social-card-deco" aria-hidden="true">✦</span>
                 <h3>TikTok<span>.</span></h3>
                 <p data-fr="CRÉATIVITÉ & TENDANCES" data-en="CREATIVITY & TRENDS">CRÉATIVITÉ & TENDANCES</p>
               </div>
+
               <div class="social-card-bottom">
                 <span data-fr="VIDÉOS / CULTURE DIGITALE" data-en="VIDEO / DIGITAL CULTURE">VIDÉOS / CULTURE DIGITALE</span>
                 <span>SC®</span>
@@ -574,13 +871,16 @@
 
             <a class="social-card social-pinterest" href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
               <div class="social-card-top">
-                <span>04 / PINTEREST</span><span class="social-card-arrow">↗</span>
+                <span>04 / PINTEREST</span>
+                <span class="social-card-arrow">↗</span>
               </div>
+
               <div class="social-card-center">
                 <span class="social-card-deco" aria-hidden="true">✳</span>
                 <h3>Pinterest<span>.</span></h3>
                 <p data-fr="MON CARNET D'INSPIRATIONS" data-en="MY INSPIRATION BOARD">MON CARNET D'INSPIRATIONS</p>
               </div>
+
               <div class="social-card-bottom">
                 <span data-fr="MOODBOARDS / IDÉES" data-en="MOODBOARDS / IDEAS">MOODBOARDS / IDÉES</span>
                 <span>SC®</span>
@@ -598,6 +898,7 @@
         <a href="#home" data-fr="RETOUR EN HAUT ↑" data-en="BACK TO TOP ↑">RETOUR EN HAUT ↑</a>
       </div>
     </section>
+
   </main>
 </body>
 </html>

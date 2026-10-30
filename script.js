@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobile-menu');
   const languageButtons = document.querySelectorAll('.lang-btn');
   const skillToggles = document.querySelectorAll('.skill-toggle');
+  const bridalGalleryToggle = document.getElementById('bridal-gallery-toggle');
+  const bridalGallery = document.getElementById('cymbeline-gallery');
 
   const reduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
@@ -299,4 +301,74 @@ document.addEventListener('DOMContentLoaded', () => {
       detail.hidden = !willOpen;
     });
   });
+
+  if (bridalGalleryToggle && bridalGallery) {
+    bridalGallery.hidden = true;
+
+    bridalGalleryToggle.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+    const updateBridalGalleryLabel = isOpen => {
+      const label = bridalGalleryToggle.querySelector(
+        '[data-fr][data-en]'
+      );
+
+      if (!label) {
+        return;
+      }
+
+      const translations = {
+        fr: isOpen
+          ? 'FERMER LES COULISSES'
+          : 'DÉCOUVRIR LES COULISSES',
+        en: isOpen
+          ? 'CLOSE BEHIND THE SCENES'
+          : 'EXPLORE BEHIND THE SCENES'
+      };
+
+      label.setAttribute('data-fr', translations.fr);
+      label.setAttribute('data-en', translations.en);
+      label.textContent = translations[currentLanguage];
+    };
+
+    bridalGalleryToggle.addEventListener('click', () => {
+      const isOpen =
+        bridalGalleryToggle.getAttribute('aria-expanded') === 'true';
+
+      const shouldOpen = !isOpen;
+
+      bridalGalleryToggle.setAttribute(
+        'aria-expanded',
+        String(shouldOpen)
+      );
+
+      bridalGallery.hidden = !shouldOpen;
+
+      bridalGallery.classList.toggle(
+        'is-open',
+        shouldOpen
+      );
+
+      updateBridalGalleryLabel(shouldOpen);
+
+      if (shouldOpen) {
+        bridalGallery.querySelectorAll('.reveal').forEach(item => {
+          item.classList.add('visible');
+        });
+
+        updateProgress();
+
+        requestAnimationFrame(() => {
+          bridalGallery.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        });
+      } else {
+        updateProgress();
+      }
+    });
+  }
 });

@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const intro = document.getElementById('intro-screen');
   const progress = document.getElementById('scroll-progress');
@@ -371,4 +370,459 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  const bridalFlipCard = document.getElementById(
+    'bridal-flip-card'
+  );
+
+  if (bridalFlipCard) {
+    bridalFlipCard.addEventListener('click', () => {
+      const isFlipped = bridalFlipCard.classList.toggle(
+        'is-flipped'
+      );
+
+      bridalFlipCard.setAttribute(
+        'aria-pressed',
+        String(isFlipped)
+      );
+    });
+  }
+
+  const feedOpenButton = document.getElementById('feed-project-open');
+  const feedModal = document.getElementById('feed-project-modal');
+  const feedCloseButton = document.getElementById('feed-modal-close');
+  const feedBackdrop = document.getElementById('feed-modal-backdrop');
+  const feedImage = document.getElementById('feed-modal-image');
+  const feedNumber = document.getElementById('feed-modal-number');
+  const feedCounter = document.getElementById('feed-modal-counter');
+  const feedPrevButton = document.getElementById('feed-prev');
+  const feedNextButton = document.getElementById('feed-next');
+
+  const feeds = [
+    'images/feed1.jpg',
+    'images/feed2.jpg',
+    'images/feed3.jpg',
+    'images/feed4.jpg',
+    'images/feed5.jpg'
+  ];
+
+  let activeFeed = 0;
+  let feedPreviousFocus = null;
+
+  const updateFeed = () => {
+    if (!feedImage || !feedNumber || !feedCounter) {
+      return;
+    }
+
+    const number = String(activeFeed + 1).padStart(2, '0');
+
+    feedImage.src = feeds[activeFeed];
+
+    feedImage.alt = currentLanguage === 'fr'
+      ? `Proposition de feed Instagram Cymbeline Forever ${activeFeed + 1} sur 5`
+      : `Cymbeline Forever Instagram feed concept ${activeFeed + 1} of 5`;
+
+    feedNumber.textContent = `${number} / 05`;
+    feedCounter.textContent = `${number} — 05`;
+  };
+
+  const openFeedModal = () => {
+    if (!feedModal) {
+      return;
+    }
+
+    feedPreviousFocus = document.activeElement;
+
+    activeFeed = 0;
+    updateFeed();
+
+    feedModal.hidden = false;
+    document.body.classList.add('feed-modal-open');
+
+    if (feedCloseButton) {
+      feedCloseButton.focus();
+    }
+  };
+
+  const closeFeedModal = () => {
+    if (!feedModal) {
+      return;
+    }
+
+    feedModal.hidden = true;
+    document.body.classList.remove('feed-modal-open');
+
+    if (feedPreviousFocus && typeof feedPreviousFocus.focus === 'function') {
+      feedPreviousFocus.focus();
+    }
+  };
+
+  const changeFeed = direction => {
+    activeFeed = (activeFeed + direction + feeds.length) % feeds.length;
+
+    updateFeed();
+  };
+
+  if (feedOpenButton && feedModal) {
+    feedOpenButton.addEventListener('click', openFeedModal);
+  }
+
+  if (feedCloseButton) {
+    feedCloseButton.addEventListener('click', closeFeedModal);
+  }
+
+  if (feedBackdrop) {
+    feedBackdrop.addEventListener('click', closeFeedModal);
+  }
+
+  if (feedPrevButton) {
+    feedPrevButton.addEventListener('click', () => {
+      changeFeed(-1);
+    });
+  }
+
+  if (feedNextButton) {
+    feedNextButton.addEventListener('click', () => {
+      changeFeed(1);
+    });
+  }
+
+  document.addEventListener('keydown', event => {
+    if (!feedModal || feedModal.hidden) {
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeFeedModal();
+    }
+
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      changeFeed(-1);
+    }
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      changeFeed(1);
+    }
+
+    if (event.key === 'Tab') {
+      const focusableElements = Array.from(
+        feedModal.querySelectorAll('button:not([disabled])')
+      );
+
+      if (focusableElements.length === 0) {
+        return;
+      }
+
+      const first = focusableElements[0];
+      const last = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  const passionPhotos = document.querySelectorAll('.passion-photo');
+  const passionLightbox = document.getElementById('passion-lightbox');
+  const passionLightboxImage = document.getElementById('passion-lightbox-image');
+  const passionLightboxClose = document.getElementById('passion-lightbox-close');
+
+  let lastPassionTrigger = null;
+
+  const closePassionLightbox = () => {
+    if (!passionLightbox) {
+      return;
+    }
+
+    passionLightbox.hidden = true;
+    document.body.style.overflow = '';
+    passionLightboxImage.src = '';
+
+    if (lastPassionTrigger) {
+      lastPassionTrigger.focus();
+    }
+  };
+
+  passionPhotos.forEach(button => {
+    const image = button.querySelector('img');
+
+    if (!image) {
+      return;
+    }
+
+    image.addEventListener('error', () => {
+      button.hidden = true;
+    });
+
+    button.addEventListener('click', () => {
+      if (!passionLightbox || !passionLightboxImage) {
+        return;
+      }
+
+      lastPassionTrigger = button;
+
+      passionLightboxImage.src = image.src;
+      passionLightboxImage.alt = image.alt;
+
+      passionLightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+
+      passionLightboxClose.focus();
+    });
+  });
+
+  if (passionLightboxClose) {
+    passionLightboxClose.addEventListener('click', closePassionLightbox);
+  }
+
+  if (passionLightbox) {
+    passionLightbox.addEventListener('click', event => {
+      if (event.target === passionLightbox) {
+        closePassionLightbox();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && passionLightbox && !passionLightbox.hidden) {
+      closePassionLightbox();
+    }
+  });
+
+// ==========================================
+// GALERIES MOODBOARD — SECTION 06
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // AJOUTER LES FUTURES PHOTOS ICI
+  const moodboardGalleries = {
+    voyages: [
+      'images/voyage1.jpg',
+      'images/voyage2.jpg',
+      'images/voyage3.jpg',
+      'images/voyage4.jpg',
+      'images/voyage5.jpg'
+    ],
+
+    mode: [
+      'images/mode1.jpg',
+      'images/mode2.jpg',
+      'images/mode3.jpg',
+      'images/mode4.jpg',
+      'images/mode5.jpg'
+    ],
+
+    inspirations: [
+      'images/inspiration1.jpg',
+      'images/inspiration2.jpg',
+      'images/inspiration3.jpg',
+      'images/inspiration4.jpg',
+      'images/inspiration5.jpg'
+    ]
+  };
+
+  const modal = document.getElementById('moodboard-modal');
+  const modalImage = document.getElementById('moodboard-modal-image');
+  const modalTitle = document.getElementById('moodboard-modal-title');
+  const modalCounter = document.getElementById('moodboard-counter');
+  const modalEmpty = document.getElementById('moodboard-empty');
+  const closeButton = document.getElementById('moodboard-modal-close');
+  const backdrop = document.getElementById('moodboard-modal-backdrop');
+  const prevButton = document.getElementById('moodboard-prev');
+  const nextButton = document.getElementById('moodboard-next');
+
+  if (!modal || !modalImage) return;
+
+  let currentPhotos = [];
+  let currentIndex = 0;
+  let lastFocusedElement = null;
+  let galleryRequest = 0;
+
+  const titles = {
+    voyages: { fr: 'Voyages', en: 'Travel' },
+    mode: { fr: 'Mode', en: 'Fashion' },
+    inspirations: {
+      fr: 'Inspirations',
+      en: 'Inspirations'
+    }
+  };
+
+  const getLanguage = () =>
+    document.documentElement.lang === 'en' ? 'en' : 'fr';
+
+  // Vérifie si une photo existe vraiment
+  const checkImage = src => {
+    return new Promise(resolve => {
+      const img = new Image();
+
+      img.onload = () => resolve(src);
+      img.onerror = () => resolve(null);
+
+      img.src = src;
+    });
+  };
+
+  // Affiche la photo sélectionnée
+  const updateMoodboardPhoto = () => {
+    const total = currentPhotos.length;
+    const hasPhotos = total > 0;
+
+    modalImage.hidden = !hasPhotos;
+    modalEmpty.hidden = hasPhotos;
+
+    prevButton.disabled = total < 2;
+    nextButton.disabled = total < 2;
+
+    if (!hasPhotos) {
+      modalImage.removeAttribute('src');
+      modalCounter.textContent = '00 / 00';
+
+      modalEmpty.textContent = getLanguage() === 'fr'
+        ? 'Les photos arrivent bientôt ✳'
+        : 'Photos coming soon ✳';
+
+      return;
+    }
+
+    modalImage.src = currentPhotos[currentIndex];
+
+    modalImage.alt = getLanguage() === 'fr'
+      ? `Photo ${currentIndex + 1} sur ${total}`
+      : `Photo ${currentIndex + 1} of ${total}`;
+
+    const current = String(currentIndex + 1).padStart(2, '0');
+    const count = String(total).padStart(2, '0');
+
+    modalCounter.textContent = `${current} / ${count}`;
+  };
+
+  // Ouvre la galerie choisie
+  const openMoodboardGallery = async category => {
+    if (!moodboardGalleries[category]) return;
+
+    const requestId = ++galleryRequest;
+
+    lastFocusedElement = document.activeElement;
+    currentPhotos = [];
+    currentIndex = 0;
+
+    modalTitle.textContent = titles[category][getLanguage()];
+
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+
+    updateMoodboardPhoto();
+
+    modalEmpty.textContent = getLanguage() === 'fr'
+      ? 'Chargement des photos...'
+      : 'Loading photos...';
+
+    closeButton.focus();
+
+    // Ne garde que les fichiers réellement présents
+    const checkedPhotos = await Promise.all(
+      moodboardGalleries[category].map(checkImage)
+    );
+
+    if (modal.hidden || requestId !== galleryRequest) return;
+
+    currentPhotos = checkedPhotos.filter(Boolean);
+    currentIndex = 0;
+
+    updateMoodboardPhoto();
+  };
+
+  // Ferme la galerie
+  const closeMoodboardGallery = () => {
+    galleryRequest++;
+    modal.hidden = true;
+
+    modalImage.removeAttribute('src');
+    modalImage.hidden = true;
+
+    document.body.style.overflow = '';
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  };
+
+  // Passe à la photo suivante ou précédente
+  const changeMoodboardPhoto = direction => {
+    if (currentPhotos.length < 2) return;
+
+    currentIndex =
+      (currentIndex + direction + currentPhotos.length)
+      % currentPhotos.length;
+
+    updateMoodboardPhoto();
+  };
+
+  // Boutons des catégories
+  document.querySelectorAll('.moodboard-category').forEach(button => {
+    button.addEventListener('click', () => {
+      openMoodboardGallery(button.dataset.gallery);
+    });
+  });
+
+  closeButton.addEventListener('click', closeMoodboardGallery);
+  backdrop.addEventListener('click', closeMoodboardGallery);
+
+  prevButton.addEventListener('click', () => {
+    changeMoodboardPhoto(-1);
+  });
+
+  nextButton.addEventListener('click', () => {
+    changeMoodboardPhoto(1);
+  });
+
+  // Navigation au clavier
+  document.addEventListener('keydown', event => {
+    if (modal.hidden) return;
+
+    if (event.key === 'Escape') {
+      closeMoodboardGallery();
+    }
+
+    if (event.key === 'ArrowLeft') {
+      changeMoodboardPhoto(-1);
+    }
+
+    if (event.key === 'ArrowRight') {
+      changeMoodboardPhoto(1);
+    }
+
+    if (event.key === 'Tab') {
+      const focusable = [
+        closeButton,
+        prevButton,
+        nextButton
+      ].filter(button => !button.disabled);
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (
+        !event.shiftKey &&
+        document.activeElement === last
+      ) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+});
+
 });

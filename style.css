@@ -6215,3 +6215,369 @@ body.feed-modal-open {
   position: relative;
   z-index: 2;
 }
+
+/* ==========================================
+   SITE PLUS ÉPURÉ — ORDINATEUR + TÉLÉPHONE
+   ========================================== */
+
+/* Enlever les petites écritures décoratives */
+.intro-edition,
+.intro-bottom,
+.intro-center > p,
+.hero-topline,
+.hero-eyebrow,
+.hero-bottomline,
+.hero-left-note > .tiny-label,
+.hero-left-note > p,
+.hero-right-note > .tiny-label,
+.hero-right-note > p,
+.cover-vertical,
+.cover-issue,
+.cover-caption,
+.marquee-band,
+.section-meta,
+.mini-heading,
+.about-magazine-number,
+.about-magazine-header > p,
+.about-magazine-photo-label,
+.about-magazine-photo-caption,
+.about-magazine-signature,
+.bridal-top,
+.bridal-footer,
+.bridal-current,
+.bridal-flip-photo-caption,
+.bridal-flip-back-top,
+.bridal-flip-back-bottom,
+.work-footnote,
+.visual-corner,
+.visual-main > small,
+.visual-bottom,
+.project-info > span,
+.project-info > p,
+.skill-index,
+.skills-head > p:first-child,
+.cymbeline-gallery-kicker,
+.cymbeline-gallery-item figcaption,
+.cymbeline-gallery-footer,
+.feed-modal-top > span,
+.feed-modal-eyebrow,
+.feed-modal-description > span,
+.feed-modal-side-label,
+.feed-modal-number,
+.feed-modal-counter,
+.social-magazine-header,
+.social-card-bottom,
+.social-card-center > p,
+.social-magazine-note,
+.contact-kicker,
+.contact-direct-kicker,
+.contact-footer > span,
+#passions .love-topline,
+#passions .love-intro > p,
+#passions .love-cover-index,
+#passions .love-cover-label > span,
+#passions .passions-album-footer,
+#passions .art-overline,
+#passions .art-signature,
+#passions .art-title-rule,
+#passions .art-word,
+#passions .art-ticket,
+#passions .art-stamp,
+#passions .art-note {
+  display: none !important;
+}
+
+/* Garder la flèche sur Instagram Edit */
+#work .project-three .visual-bottom {
+  display: flex !important;
+}
+
+/* Garder les flèches des réseaux sociaux */
+.social-card-top > span:not(.social-card-arrow) {
+  display: none !important;
+}
+
+.social-card-top {
+  justify-content: flex-end;
+}
+
+/* Intro centrée malgré les textes supprimés */
+.intro-screen {
+  justify-content: center;
+}
+
+/* Enlever l'ancien fond vert du moodboard */
+#passions .love-album {
+  --board-bg: #F0E5D7;
+}
+
+
+/* ==========================================
+   VERSION TÉLÉPHONE — DESIGN PLUS PROPRE
+   ========================================== */
+
+@media (max-width: 700px) {
+
+  /* SUPPRIMER LES ÉTOILES DÉCORATIVES */
+
+  .note-star,
+  .cover-stamp,
+  .about-magazine-photo-star,
+  .bridal-ornament,
+  .bridal-divider,
+  .moodboard-deco,
+  .social-card-deco,
+  .visual-main > span,
+  .note-arrow {
+    display: none !important;
+  }
+
+  /* ESPACEMENTS DU SITE */
+
+  .section-pad {
+    padding: 62px 6vw;
+  }
+
+  #experience .journey-heading h2 {
+    font-size: clamp(44px, 11vw, 67px);
+    overflow-wrap: anywhere;
+  }
+
+  /* =====================================
+     I LOVE — LES TROIS COUVERTURES
+     ===================================== */
+
+  #passions.love-studio {
+    padding: 58px 5vw 75px !important;
+    background: #FBF5EF;
+    overflow-x: clip;
+  }
+
+  #passions .love-intro {
+    display: block !important;
+    margin: 0 0 31px !important;
+  }
+
+  #passions .love-intro h2 {
+    font-size: clamp(58px, 14vw, 88px) !important;
+    line-height: .94;
+    white-space: nowrap;
+  }
+
+  /* Les couvertures passent
+     les unes sous les autres */
+
+  #passions .love-covers {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 30px !important;
+    width: 100%;
+  }
+
+  #passions .love-cover:nth-child(n) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  #passions .love-cover-visual {
+    display: grid !important;
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 6 / 5;
+    padding: 10px;
+    background: #E9DCCC;
+  }
+
+  #passions .love-cover:nth-child(2)
+  .love-cover-visual {
+    background: #EED8DE;
+  }
+
+  #passions .love-cover:nth-child(3)
+  .love-cover-visual {
+    background: #D9C9D4;
+  }
+
+  #passions .love-cover-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+  }
+
+  #passions .love-cover-label {
+    padding: 12px 2px 13px;
+  }
+
+  #passions .love-cover-label strong {
+    font-size: clamp(31px, 8vw, 43px);
+  }
+
+  /* =====================================
+     ALBUM OUVERT
+     ===================================== */
+
+  #passions .love-album {
+    width: 100% !important;
+    margin: 38px auto 0 !important;
+  }
+
+  #passions .love-album-topline {
+    justify-content: flex-end;
+    min-height: 42px;
+    padding: 0 0 10px;
+  }
+
+  #passions .passions-album-close {
+    min-height: 40px;
+    font-size: 13px;
+  }
+
+  /* Boutons Voyages / Mode / Concerts */
+
+  #passions .passions-album-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px !important;
+    margin: 0 0 15px !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  #passions .passions-album-tab {
+    min-height: 44px;
+    padding: 8px 5px;
+    border: 1px solid #D8C1C8;
+    border-radius: 24px;
+    background: #F5E9EB;
+    color: #861F42;
+    font: 600 13px var(--sans);
+    letter-spacing: -.02em;
+    text-align: center;
+  }
+
+  #passions .passions-album-tab.active {
+    background: #861F42 !important;
+    color: #FFF9F7 !important;
+    border-color: #861F42 !important;
+  }
+
+  #passions .passions-album-tab.active::after {
+    display: none !important;
+  }
+
+  /* =====================================
+     MOODBOARD — PHOTOS MIEUX ORGANISÉES
+     ===================================== */
+
+  #passions
+  .passions-album-board.love-board.art-board {
+    width: 100%;
+    height: auto !important;
+    padding: 25px 12px 35px !important;
+    overflow: hidden;
+  }
+
+  #passions .art-heading {
+    margin: 0 0 20px !important;
+  }
+
+  #passions .art-title {
+    font-size: clamp(51px, 13.5vw, 75px) !important;
+    white-space: normal;
+  }
+
+  /* Deux colonnes pour les petites photos */
+
+  #passions .art-board
+  .passions-album-grid.art-photo-layout {
+    display: grid !important;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: row;
+    gap: 9px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
+  /* Supprimer les anciens décalages */
+
+  #passions .art-board
+  .editorial-board-column:nth-child(n) {
+    display: contents !important;
+    transform: none !important;
+  }
+
+  #passions .art-board
+  .passions-album-photo:nth-child(n) {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    transform: none !important;
+    align-self: start;
+  }
+
+  /* La photo principale prend toute la largeur */
+
+  #passions .art-board
+  .editorial-board-column:nth-child(2)
+  .passions-album-photo:first-child {
+    order: -1;
+    grid-column: 1 / -1;
+    width: 100% !important;
+  }
+
+  /* Aucune photo coupée */
+
+  #passions .art-board
+  .passions-album-photo img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  /* Concerts : retirer les bordures
+     qui prennent trop de place sur mobile */
+
+  #passions .love-album[data-category="concerts"]
+  .editorial-board-column:nth-child(1) {
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  #passions .art-rip-side {
+    opacity: .18;
+  }
+
+  /* =====================================
+     RÉSEAUX SOCIAUX SUR TÉLÉPHONE
+     ===================================== */
+
+  .social-magazine-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .social-magazine-grid .social-card {
+    min-height: 164px !important;
+    padding: 13px !important;
+  }
+
+  .social-card-center {
+    padding: 12px 0 !important;
+  }
+
+  .social-card h3,
+  .social-instagram h3 {
+    font-size: clamp(18px, 5vw, 29px) !important;
+    overflow-wrap: anywhere;
+  }
+}

@@ -673,7 +673,7 @@ const journalCopy = {
       passionsTabs.forEach(tab => {
         const name = albumCollections[tab.dataset.album];
         const selected = tab.dataset.album === activeAlbum;
-        tab.textContent = `${name.number} / ${name.title[language]}`;
+        tab.textContent = name.title[language];
         tab.classList.toggle('active', selected);
         tab.setAttribute('aria-pressed', String(selected));
       });

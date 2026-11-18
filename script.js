@@ -529,300 +529,302 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const passionPhotos = document.querySelectorAll('.passion-photo');
-  const passionLightbox = document.getElementById('passion-lightbox');
-  const passionLightboxImage = document.getElementById('passion-lightbox-image');
-  const passionLightboxClose = document.getElementById('passion-lightbox-close');
+  // ==========================================
+  // PASSIONS : ALBUM PHOTO INTÉGRÉ À LA PAGE
+  // ==========================================
 
-  let lastPassionTrigger = null;
 
-  const closePassionLightbox = () => {
-    if (!passionLightbox) {
-      return;
-    }
 
-    passionLightbox.hidden = true;
-    document.body.style.overflow = '';
-    passionLightboxImage.src = '';
 
-    if (lastPassionTrigger) {
-      lastPassionTrigger.focus();
-    }
-  };
+const journalSelections = {
+  voyages: [7, 2, 10, 5, 14, 19],
+  mode: [1, 4, 7, 3, 10, 13],
+  concerts: [0, 1, 2, 3, 4, 6]
+};
 
-  passionPhotos.forEach(button => {
-    const image = button.querySelector('img');
 
-    if (!image) {
-      return;
-    }
-
-    image.addEventListener('error', () => {
-      button.hidden = true;
-    });
-
-    button.addEventListener('click', () => {
-      if (!passionLightbox || !passionLightboxImage) {
-        return;
-      }
-
-      lastPassionTrigger = button;
-
-      passionLightboxImage.src = image.src;
-      passionLightboxImage.alt = image.alt;
-
-      passionLightbox.hidden = false;
-      document.body.style.overflow = 'hidden';
-
-      passionLightboxClose.focus();
-    });
-  });
-
-  if (passionLightboxClose) {
-    passionLightboxClose.addEventListener('click', closePassionLightbox);
-  }
-
-  if (passionLightbox) {
-    passionLightbox.addEventListener('click', event => {
-      if (event.target === passionLightbox) {
-        closePassionLightbox();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && passionLightbox && !passionLightbox.hidden) {
-      closePassionLightbox();
-    }
-  });
-
-// ==========================================
-// GALERIES MOODBOARD — SECTION 06
-// ==========================================
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  // AJOUTER LES FUTURES PHOTOS ICI
-  const moodboardGalleries = {
-    voyages: [
-      'images/voyage1.jpg',
-      'images/voyage2.jpg',
-      'images/voyage3.jpg',
-      'images/voyage4.jpg',
-      'images/voyage5.jpg'
+const journalCopy = {
+  voyages: {
+    fr: [
+      "Carnet de départs et d’échappées.",
+      "Partir, observer, photographier. Les paysages changent, les souvenirs restent.",
+      "« Collectionner les horizons. »"
     ],
-
-    mode: [
-      'images/mode1.jpg',
-      'images/mode2.jpg',
-      'images/mode3.jpg',
-      'images/mode4.jpg',
-      'images/mode5.jpg'
-    ],
-
-    inspirations: [
-      'images/inspiration1.jpg',
-      'images/inspiration2.jpg',
-      'images/inspiration3.jpg',
-      'images/inspiration4.jpg',
-      'images/inspiration5.jpg'
+    en: [
+      "Notes from elsewhere.",
+      "Leaving, observing, photographing. Landscapes change, memories stay.",
+      "“Collecting horizons.”"
     ]
-  };
+  },
+  mode: {
+    fr: [
+      "Silhouettes, matières et inspirations.",
+      "Une matière, une silhouette, un détail : autant de façons de raconter une histoire sans un mot.",
+      "« Le style est un langage. »"
+    ],
+    en: [
+      "Silhouettes, textures and inspiration.",
+      "A fabric, a silhouette, a detail: countless ways to tell a story without words.",
+      "“Style is a language.”"
+    ]
+  },
+  concerts: {
+    fr: [
+      "La musique à l’état brut.",
+      "Des scènes, de la lumière et des émotions saisies sur le vif.",
+      "« Ces instants qui vibrent. »"
+    ],
+    en: [
+      "Music, unfiltered.",
+      "Stages, lights and emotions captured live.",
+      "“Moments that resonate.”"
+    ]
+  }
+};
 
-  const modal = document.getElementById('moodboard-modal');
-  const modalImage = document.getElementById('moodboard-modal-image');
-  const modalTitle = document.getElementById('moodboard-modal-title');
-  const modalCounter = document.getElementById('moodboard-counter');
-  const modalEmpty = document.getElementById('moodboard-empty');
-  const closeButton = document.getElementById('moodboard-modal-close');
-  const backdrop = document.getElementById('moodboard-modal-backdrop');
-  const prevButton = document.getElementById('moodboard-prev');
-  const nextButton = document.getElementById('moodboard-next');
 
-  if (!modal || !modalImage) return;
-
-  let currentPhotos = [];
-  let currentIndex = 0;
-  let lastFocusedElement = null;
-  let galleryRequest = 0;
-
-  const titles = {
-    voyages: { fr: 'Voyages', en: 'Travel' },
-    mode: { fr: 'Mode', en: 'Fashion' },
-    inspirations: {
-      fr: 'Inspirations',
-      en: 'Inspirations'
+  // On conserve exactement les chemins de tes fichiers d'origine.
+  const albumCollections = {
+    voyages: {
+      number: '01',
+      title: { fr: 'Voyages', en: 'Travel' },
+      description: {
+        fr: "Mes souvenirs d'ailleurs.",
+        en: 'Memories from elsewhere.'
+      },
+      photos: Array.from(
+        { length: 20 },
+        (_, index) => `images/voyages/voyage (${index + 1}).jpeg`
+      )
+    },
+    mode: {
+      number: '02',
+      title: { fr: 'Mode', en: 'Fashion' },
+      description: {
+        fr: "Les détails qui m'inspirent.",
+        en: 'Details that inspire me.'
+      },
+      photos: Array.from(
+        { length: 14 },
+        (_, index) => index === 0
+          ? 'images/mode/mode1.jpg'
+          : `images/mode/mode${index + 1}.jpeg`
+      )
+    },
+    concerts: {
+      number: '03',
+      title: { fr: 'Concerts', en: 'Concerts' },
+      description: {
+        fr: 'Les instants que je veux garder.',
+        en: 'Moments I want to remember.'
+      },
+      photos: Array.from(
+        { length: 7 },
+        (_, index) => `images/concert/concert (${index + 1}).jpeg`
+      )
     }
   };
 
-  const getLanguage = () =>
-    document.documentElement.lang === 'en' ? 'en' : 'fr';
+  const passionsAlbum = document.getElementById('passions-album');
+  const passionsAlbumGrid = document.getElementById('passions-album-grid');
+  const passionsAlbumTitle = document.getElementById('passions-album-title');
+  const passionsAlbumDescription = document.getElementById('passions-album-description');
+  const passionsAlbumKicker = document.getElementById('passions-album-kicker');
+  const passionsAlbumEdition = document.getElementById('passions-album-edition');
+  const passionsAlbumCount = document.getElementById('passions-album-count');
+  const passionsAlbumClose = document.getElementById('passions-album-close');
+  const passionsAlbumCloseLabel = document.getElementById('passions-album-close-label');
+  const passionsCovers = document.querySelectorAll('#passions .moodboard-category[data-gallery]');
+  const passionsTabs = document.querySelectorAll('#passions .passions-album-tab[data-album]');
 
-  // Vérifie si une photo existe vraiment
-  const checkImage = src => {
-    return new Promise(resolve => {
-      const img = new Image();
+  if (passionsAlbum && passionsAlbumGrid && passionsAlbumClose) {
+    let activeAlbum = null;
+    let lastAlbumOpener = null;
 
-      img.onload = () => resolve(src);
-      img.onerror = () => resolve(null);
+    const albumLanguage = () =>
+      document.documentElement.lang === 'en' ? 'en' : 'fr';
 
-      img.src = src;
-    });
-  };
+    const updateAlbumCount = () => {
+      const total = passionsAlbumGrid.querySelectorAll('.passions-album-photo').length;
+      const label = albumLanguage() === 'en' ? 'PHOTOS' : 'PHOTOS';
+      passionsAlbumCount.textContent =
+        `${String(total).padStart(2, '0')} ${label}`;
+    };
 
-  // Affiche la photo sélectionnée
-  const updateMoodboardPhoto = () => {
-    const total = currentPhotos.length;
-    const hasPhotos = total > 0;
+    const updateAlbumLabels = () => {
+      if (!activeAlbum) return;
 
-    modalImage.hidden = !hasPhotos;
-    modalEmpty.hidden = hasPhotos;
+      const language = albumLanguage();
+      const collection = albumCollections[activeAlbum];
 
-    prevButton.disabled = total < 2;
-    nextButton.disabled = total < 2;
+      // textContent évite de modifier les attributs et de créer du HTML inutile.
+      passionsAlbumTitle.textContent = `${collection.title[language]}.`;
+      passionsAlbumDescription.textContent = collection.description[language];
+      passionsAlbumKicker.textContent = language === 'en'
+        ? 'A LITTLE PIECE OF MY WORLD ✳'
+        : 'UN PETIT MORCEAU DE MON UNIVERS ✳';
+      passionsAlbumEdition.textContent = language === 'en'
+        ? `ISSUE ${collection.number} / 03`
+        : `ÉDITION ${collection.number} / 03`;
+      passionsAlbumCloseLabel.textContent = language === 'en' ? 'CLOSE' : 'FERMER';
+      passionsAlbumClose.setAttribute('aria-label',
+        language === 'en' ? 'Close the photo album' : "Fermer l'album photo");
 
-    if (!hasPhotos) {
-      modalImage.removeAttribute('src');
-      modalCounter.textContent = '00 / 00';
+      passionsTabs.forEach(tab => {
+        const name = albumCollections[tab.dataset.album];
+        const selected = tab.dataset.album === activeAlbum;
+        tab.textContent = `${name.number} / ${name.title[language]}`;
+        tab.classList.toggle('active', selected);
+        tab.setAttribute('aria-pressed', String(selected));
+      });
 
-      modalEmpty.textContent = getLanguage() === 'fr'
-        ? 'Les photos arrivent bientôt ✳'
-        : 'Photos coming soon ✳';
+      passionsAlbumGrid.setAttribute('aria-label',
+        language === 'en'
+          ? `${collection.title.en} photo collection`
+          : `Collection de photos : ${collection.title.fr}`);
 
-      return;
-    }
 
-    modalImage.src = currentPhotos[currentIndex];
 
-    modalImage.alt = getLanguage() === 'fr'
-      ? `Photo ${currentIndex + 1} sur ${total}`
-      : `Photo ${currentIndex + 1} of ${total}`;
+      updateAlbumCount();
+    };
 
-    const current = String(currentIndex + 1).padStart(2, '0');
-    const count = String(total).padStart(2, '0');
-
-    modalCounter.textContent = `${current} / ${count}`;
-  };
-
-  // Ouvre la galerie choisie
-  const openMoodboardGallery = async category => {
-    if (!moodboardGalleries[category]) return;
-
-    const requestId = ++galleryRequest;
-
-    lastFocusedElement = document.activeElement;
-    currentPhotos = [];
-    currentIndex = 0;
-
-    modalTitle.textContent = titles[category][getLanguage()];
-
-    modal.hidden = false;
-    document.body.style.overflow = 'hidden';
-
-    updateMoodboardPhoto();
-
-    modalEmpty.textContent = getLanguage() === 'fr'
-      ? 'Chargement des photos...'
-      : 'Loading photos...';
-
-    closeButton.focus();
-
-    // Ne garde que les fichiers réellement présents
-    const checkedPhotos = await Promise.all(
-      moodboardGalleries[category].map(checkImage)
-    );
-
-    if (modal.hidden || requestId !== galleryRequest) return;
-
-    currentPhotos = checkedPhotos.filter(Boolean);
-    currentIndex = 0;
-
-    updateMoodboardPhoto();
-  };
-
-  // Ferme la galerie
-  const closeMoodboardGallery = () => {
-    galleryRequest++;
-    modal.hidden = true;
-
-    modalImage.removeAttribute('src');
-    modalImage.hidden = true;
-
-    document.body.style.overflow = '';
-
-    if (lastFocusedElement) {
-      lastFocusedElement.focus();
-    }
-  };
-
-  // Passe à la photo suivante ou précédente
-  const changeMoodboardPhoto = direction => {
-    if (currentPhotos.length < 2) return;
-
-    currentIndex =
-      (currentIndex + direction + currentPhotos.length)
-      % currentPhotos.length;
-
-    updateMoodboardPhoto();
-  };
-
-  // Boutons des catégories
-  document.querySelectorAll('.moodboard-category').forEach(button => {
-    button.addEventListener('click', () => {
-      openMoodboardGallery(button.dataset.gallery);
-    });
-  });
-
-  closeButton.addEventListener('click', closeMoodboardGallery);
-  backdrop.addEventListener('click', closeMoodboardGallery);
-
-  prevButton.addEventListener('click', () => {
-    changeMoodboardPhoto(-1);
-  });
-
-  nextButton.addEventListener('click', () => {
-    changeMoodboardPhoto(1);
-  });
-
-  // Navigation au clavier
-  document.addEventListener('keydown', event => {
-    if (modal.hidden) return;
-
-    if (event.key === 'Escape') {
-      closeMoodboardGallery();
-    }
-
-    if (event.key === 'ArrowLeft') {
-      changeMoodboardPhoto(-1);
-    }
-
-    if (event.key === 'ArrowRight') {
-      changeMoodboardPhoto(1);
-    }
-
-    if (event.key === 'Tab') {
-      const focusable = [
-        closeButton,
-        prevButton,
-        nextButton
-      ].filter(button => !button.disabled);
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (
-        !event.shiftKey &&
-        document.activeElement === last
-      ) {
-        event.preventDefault();
-        first.focus();
+    const closeAlbum = () => {
+      passionsAlbum.hidden = true;
+      passionsAlbum.removeAttribute('data-category');
+      activeAlbum = null;
+      passionsAlbumGrid.replaceChildren();
+      passionsCovers.forEach(coverButton => {
+        coverButton.setAttribute('aria-expanded', 'false');
+      });
+      updateProgress();
+      if (lastAlbumOpener?.isConnected) {
+        lastAlbumOpener.focus({ preventScroll: true });
+        lastAlbumOpener.scrollIntoView({
+          behavior: reduceMotion ? 'auto' : 'smooth',
+          block: 'center'
+        });
       }
-    }
-  });
+    };
 
+    const openAlbum = (category, shouldScroll = true) => {
+      const collection = albumCollections[category];
+      if (!collection) return;
+
+      activeAlbum = category;
+      passionsAlbum.dataset.category = category;
+
+      const fragment = document.createDocumentFragment();
+
+      
+journalSelections[category].forEach((index) => {
+  const source = collection.photos[index];
+
+        const figure = document.createElement('figure');
+        figure.className = 'passions-album-photo';
+
+        const image = document.createElement('img');
+        image.src = source;
+        image.alt = albumLanguage() === 'en'
+          ? `${collection.title.en}, photo ${index + 1}`
+          : `${collection.title.fr}, photo ${index + 1}`;
+        image.loading = 'eager';
+        image.decoding = 'async';
+
+        image.addEventListener('error', () => {
+          // On ne garde pas de case vide si une image manque.
+          if (!figure.isConnected) return;
+          figure.remove();
+          updateAlbumCount();
+        }, { once: true });
+
+        const number = document.createElement('figcaption');
+        number.textContent = String(index + 1).padStart(2, '0');
+
+        figure.append(image, number);
+        fragment.appendChild(figure);
+      });
+
+      
+passionsAlbumGrid.replaceChildren(fragment);
+
+// On garde seulement 6 photos.
+// On les répartit dans 3 colonnes.
+const boardPhotos = Array.from(
+  passionsAlbumGrid.querySelectorAll('.passions-album-photo')
+).slice(0, 6);
+
+const boardColumns = Array.from({ length: 3 }, () => {
+  const column = document.createElement('div');
+  column.className = 'editorial-board-column';
+  return column;
 });
+
+
+// Deux photos à gauche
+boardColumns[0].append(
+  boardPhotos[1],
+  boardPhotos[3]
+);
+
+// Grande photo centrale + photo secondaire
+boardColumns[1].append(
+  boardPhotos[0],
+  boardPhotos[5]
+);
+
+// Deux photos à droite
+boardColumns[2].append(
+  boardPhotos[2],
+  boardPhotos[4]
+);
+
+passionsAlbumGrid.replaceChildren(...boardColumns);
+
+
+      passionsAlbum.hidden = false;
+      updateAlbumLabels();
+
+      passionsCovers.forEach(coverButton => {
+        coverButton.setAttribute('aria-expanded',
+          String(coverButton.dataset.gallery === category));
+      });
+
+      updateProgress();
+
+      if (shouldScroll) {
+        window.requestAnimationFrame(() => {
+          passionsAlbum.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        });
+      }
+    };
+
+    passionsCovers.forEach(coverButton => {
+      coverButton.addEventListener('click', () => {
+        lastAlbumOpener = coverButton;
+
+        if (!passionsAlbum.hidden && activeAlbum === coverButton.dataset.gallery) {
+          closeAlbum();
+        } else {
+          openAlbum(coverButton.dataset.gallery);
+        }
+      });
+    });
+
+    passionsTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        openAlbum(tab.dataset.album, false);
+      });
+    });
+
+    passionsAlbumClose.addEventListener('click', closeAlbum);
+
+    // Les boutons de langue existants changent aussi le texte de l'album.
+    languageButtons.forEach(languageButton => {
+      languageButton.addEventListener('click', updateAlbumLabels);
+    });
+  }
 
 });

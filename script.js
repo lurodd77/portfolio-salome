@@ -237,8 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'salome-portfolio-language',
         language
       );
-    } catch (error) {
-    }
+    } catch {}
   };
 
   languageButtons.forEach(button => {
@@ -257,8 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (stored === 'fr' || stored === 'en') {
       savedLanguage = stored;
     }
-  } catch (error) {
-  }
+  } catch {}
 
   setLanguage(savedLanguage);
 
@@ -542,47 +540,6 @@ const journalSelections = {
   concerts: [0, 1, 2, 3, 4, 6]
 };
 
-
-const journalCopy = {
-  voyages: {
-    fr: [
-      "Carnet de départs et d’échappées.",
-      "Partir, observer, photographier. Les paysages changent, les souvenirs restent.",
-      "« Collectionner les horizons. »"
-    ],
-    en: [
-      "Notes from elsewhere.",
-      "Leaving, observing, photographing. Landscapes change, memories stay.",
-      "“Collecting horizons.”"
-    ]
-  },
-  mode: {
-    fr: [
-      "Silhouettes, matières et inspirations.",
-      "Une matière, une silhouette, un détail : autant de façons de raconter une histoire sans un mot.",
-      "« Le style est un langage. »"
-    ],
-    en: [
-      "Silhouettes, textures and inspiration.",
-      "A fabric, a silhouette, a detail: countless ways to tell a story without words.",
-      "“Style is a language.”"
-    ]
-  },
-  concerts: {
-    fr: [
-      "La musique à l’état brut.",
-      "Des scènes, de la lumière et des émotions saisies sur le vif.",
-      "« Ces instants qui vibrent. »"
-    ],
-    en: [
-      "Music, unfiltered.",
-      "Stages, lights and emotions captured live.",
-      "“Moments that resonate.”"
-    ]
-  }
-};
-
-
   // On conserve exactement les chemins de tes fichiers d'origine.
   const albumCollections = {
     voyages: {
@@ -646,9 +603,8 @@ const journalCopy = {
 
     const updateAlbumCount = () => {
       const total = passionsAlbumGrid.querySelectorAll('.passions-album-photo').length;
-      const label = albumLanguage() === 'en' ? 'PHOTOS' : 'PHOTOS';
       passionsAlbumCount.textContent =
-        `${String(total).padStart(2, '0')} ${label}`;
+        `${String(total).padStart(2, '0')} PHOTOS`;
     };
 
     const updateAlbumLabels = () => {

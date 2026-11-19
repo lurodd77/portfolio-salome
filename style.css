@@ -6102,3 +6102,62 @@ body.feed-modal-open {
     row-gap: 42px;
   }
 }
+
+/* =====================================
+   TYPOGRAPHIE PLUS MODERNE ET ÉPURÉE
+   ===================================== */
+
+/* Remplacer la police des petites écritures
+   partout sauf dans I LOVE */
+
+body {
+  --mono: 'DM Sans', Arial, sans-serif;
+}
+
+/* Préserver exactement I LOVE */
+#passions {
+  --mono: 'DM Mono', monospace;
+}
+
+/* Dates, petites légendes et informations */
+
+#experience .history-date,
+#experience .history-type,
+#experience .history-heading,
+#experience .education-heading > span,
+#experience .education-item > span,
+
+#work .project-info > span,
+#work .project-info > p,
+
+#skills .skills-head > p:first-child,
+
+#about .about-magazine-photo-caption,
+
+#contact .contact-kicker,
+#contact .contact-footer {
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .015em;
+  line-height: 1.5;
+}
+
+/* Dates du parcours plus élégantes */
+
+#experience .history-date {
+  font-size: 13px;
+  font-weight: 700;
+  color: #861F42;
+}
+
+/* Sur téléphone */
+
+@media (max-width: 700px) {
+  #experience .history-date,
+  #experience .history-type,
+  #experience .education-item > span {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+}

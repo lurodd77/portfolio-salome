@@ -422,6 +422,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     feedNumber.textContent = `${number} / 05`;
     feedCounter.textContent = `${number} — 05`;
+
+// Mettre en évidence la miniature sélectionnée
+feedModal.querySelectorAll('.feed-showcase-thumb')
+  .forEach(button => {
+    const selected =
+      Number(button.dataset.feedIndex) === activeFeed;
+
+    button.classList.toggle('is-active', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
+
+// Animation douce à chaque changement d'image
+if (!reduceMotion) {
+  feedImage.classList.remove('is-changing');
+  void feedImage.offsetWidth;
+  feedImage.classList.add('is-changing');
+}
+
   };
 
   const openFeedModal = () => {
@@ -484,6 +502,18 @@ document.addEventListener('DOMContentLoaded', () => {
       changeFeed(1);
     });
   }
+
+// Cliquer directement sur une des cinq miniatures
+if (feedModal) {
+  feedModal.querySelectorAll('.feed-showcase-thumb')
+    .forEach(button => {
+      button.addEventListener('click', () => {
+        activeFeed = Number(button.dataset.feedIndex);
+        updateFeed();
+      });
+    });
+}
+
 
   document.addEventListener('keydown', event => {
     if (!feedModal || feedModal.hidden) {

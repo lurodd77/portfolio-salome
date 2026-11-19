@@ -6161,3 +6161,359 @@ body {
     letter-spacing: 0;
   }
 }
+
+/* ==========================================
+   INSTAGRAM EDIT — GALERIE MINIMALISTE
+   ========================================== */
+
+#feed-project-modal.feed-modal {
+  padding: 16px;
+}
+
+#feed-project-modal .feed-modal-backdrop {
+  background: rgba(29, 17, 23, .76);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+#feed-project-modal .feed-showcase-panel {
+  width: min(100%, 1080px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+
+  padding: clamp(22px, 4vw, 46px);
+  background: #FBF7F2;
+  color: #861F42;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 25px 90px rgba(0,0,0,.18);
+}
+
+/* Titre + fermeture */
+
+#feed-project-modal .feed-showcase-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+#feed-project-modal .feed-showcase-top h2 {
+  margin: 0;
+
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: clamp(37px, 6vw, 78px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.075em;
+}
+
+#feed-project-modal .feed-showcase-top h2 em {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+}
+
+#feed-project-modal .feed-modal-close {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+  background: #F0E4E6;
+  color: #861F42;
+}
+
+#feed-project-modal .feed-modal-close:hover {
+  background: #861F42;
+  color: white;
+}
+
+/* Une seule phrase de présentation */
+
+#feed-project-modal .feed-showcase-intro {
+  max-width: 550px;
+  margin: 14px 0 25px;
+
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #725961;
+}
+
+/* Image principale */
+
+#feed-project-modal .feed-showcase-stage {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 12px;
+}
+
+#feed-project-modal .feed-showcase-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 0;
+  padding: 18px;
+  background: #F0E8E5;
+  border-radius: 5px;
+}
+
+#feed-project-modal .feed-showcase-image img {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(53dvh, 600px);
+
+  object-fit: contain;
+  box-shadow: 0 6px 22px rgba(50, 28, 34, .08);
+}
+
+/* Flèches */
+
+#feed-project-modal .feed-modal-arrow {
+  width: 46px;
+  height: 46px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #F0E4E6;
+  color: #861F42;
+
+  font-size: 23px;
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease;
+}
+
+#feed-project-modal .feed-modal-arrow:hover {
+  background: #861F42;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Miniatures */
+
+#feed-project-modal .feed-showcase-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(7px, 1.5vw, 15px);
+
+  max-width: 660px;
+  margin: 24px auto 0;
+}
+
+#feed-project-modal .feed-showcase-thumb {
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+
+  padding: 5px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+
+  background: #F0E8E5;
+  opacity: .65;
+
+  cursor: pointer;
+
+  transition:
+    opacity .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+#feed-project-modal .feed-showcase-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#feed-project-modal .feed-showcase-thumb:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+#feed-project-modal .feed-showcase-thumb.is-active {
+  opacity: 1;
+  border-color: #861F42;
+}
+
+#feed-project-modal
+:is(.feed-showcase-thumb, .feed-modal-arrow,
+    .feed-modal-close):focus-visible {
+  outline: 2px solid #861F42;
+  outline-offset: 4px;
+}
+
+/* Compteur masqué visuellement */
+
+#feed-project-modal .feed-showcase-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ==========================================
+   TÉLÉPHONE — GALERIE PLEIN ÉCRAN
+   ========================================== */
+
+@media (max-width: 700px) {
+
+  #feed-project-modal.feed-modal {
+    padding: 0;
+  }
+
+  #feed-project-modal .feed-showcase-panel {
+    width: 100%;
+    min-height: 100dvh;
+    max-height: 100dvh;
+
+    padding: max(22px, env(safe-area-inset-top))
+             16px
+             max(22px, env(safe-area-inset-bottom));
+
+    border-radius: 0;
+  }
+
+  #feed-project-modal .feed-showcase-top h2 {
+    font-size: clamp(32px, 8.4vw, 46px);
+  }
+
+  #feed-project-modal .feed-modal-close {
+    width: 38px;
+    height: 38px;
+  }
+
+  #feed-project-modal .feed-showcase-intro {
+    font-size: 13px;
+    margin: 14px 0 22px;
+  }
+
+  #feed-project-modal .feed-showcase-stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #feed-project-modal .feed-showcase-image {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    padding: 12px;
+  }
+
+  #feed-project-modal .feed-showcase-image img {
+    max-height: 51dvh;
+    max-width: 100%;
+  }
+
+  #feed-project-modal #feed-prev {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  #feed-project-modal #feed-next {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  #feed-project-modal .feed-showcase-thumbnails {
+    gap: 6px;
+    margin-top: 18px;
+  }
+
+  #feed-project-modal .feed-showcase-thumb {
+    padding: 3px;
+  }
+}
+
+
+/* ==========================================
+   ANIMATIONS TRÈS DISCRÈTES
+   SANS MODIFIER I LOVE
+   ========================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Animations au défilement déjà gérées
+     par ton script.js : mouvement plus doux */
+
+  :is(#about, #experience, #work, #skills, #contact)
+  .reveal {
+    transform: translateY(16px);
+    transition:
+      opacity .8s ease,
+      transform .8s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  :is(#about, #experience, #work, #skills, #contact)
+  .reveal.visible {
+    transform: translateY(0);
+  }
+
+  /* Transition quand on change de feed */
+
+  #feed-project-modal
+  .feed-showcase-image img.is-changing {
+    animation: feedImageSoftAppear .38s ease both;
+  }
+}
+
+@keyframes feedImageSoftAppear {
+  from {
+    opacity: .45;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #feed-project-modal .feed-showcase-panel,
+  #feed-project-modal .feed-showcase-image img {
+    animation: none !important;
+  }
+
+  #feed-project-modal .feed-showcase-thumb,
+  #feed-project-modal .feed-modal-arrow {
+    transition: none;
+  }
+}
+
+/* MON PARCOURS — INTITULÉS PLUS VISIBLES */
+
+#experience .history-type {
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.4;
+}
+
+/* Version téléphone */
+@media (max-width: 700px) {
+  #experience .history-type {
+    font-size: 14px !important;
+  }
+}

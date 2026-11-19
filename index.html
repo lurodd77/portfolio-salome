@@ -954,7 +954,9 @@
         ESPACE RÉSERVÉ À MES FUTURES RÉALISATIONS.
       </p>
     </section>
-    
+
+<!-- INSTAGRAM EDIT — GALERIE ÉPURÉE -->
+
 <div
   class="feed-modal"
   id="feed-project-modal"
@@ -963,11 +965,17 @@
   aria-labelledby="feed-modal-title"
   hidden
 >
-  <div class="feed-modal-backdrop" id="feed-modal-backdrop"></div>
+  <div
+    class="feed-modal-backdrop"
+    id="feed-modal-backdrop"
+  ></div>
 
-  <div class="feed-modal-panel">
-    <div class="feed-modal-top">
-      <span>SC® / THE CREATIVE FILES</span>
+  <div class="feed-modal-panel feed-showcase-panel">
+
+    <div class="feed-showcase-top">
+      <h2 id="feed-modal-title">
+        Instagram <em>edit.</em>
+      </h2>
 
       <button
         class="feed-modal-close"
@@ -981,104 +989,122 @@
       </button>
     </div>
 
-    <div class="feed-modal-heading">
-      <div>
-        <span class="feed-modal-eyebrow">03 / SOCIAL MEDIA PROJECT</span>
+    <p
+      class="feed-showcase-intro"
+      data-fr="Cinq propositions de feed Instagram pour Cymbeline Forever."
+      data-en="Five Instagram feed concepts for Cymbeline Forever."
+    >
+      Cinq propositions de feed Instagram pour Cymbeline Forever.
+    </p>
 
-        <h2 id="feed-modal-title">
-          INSTAGRAM
-          <em>edit.</em>
-        </h2>
-      </div>
+    <div class="feed-showcase-stage">
 
-      <div class="feed-modal-description">
-        <span>CYMBELINE FOREVER / VISUAL STUDIES</span>
+      <button
+        class="feed-modal-arrow"
+        id="feed-prev"
+        type="button"
+        aria-label="Feed précédent"
+        data-aria-fr="Feed précédent"
+        data-aria-en="Previous feed"
+      >
+        ←
+      </button>
 
-        <p
-          data-fr="Cinq propositions de feeds Instagram imaginées autour de l'identité visuelle de Cymbeline Forever. Un travail sur l'harmonie des images, la composition et l'univers de la marque."
-          data-en="Five Instagram feed concepts developed around Cymbeline Forever's visual identity, exploring image harmony, composition and the brand's creative universe."
-        >
-          Cinq propositions de feeds Instagram imaginées autour de l'identité visuelle de Cymbeline Forever. Un travail sur l'harmonie des images, la composition et l'univers de la marque.
-        </p>
-      </div>
-    </div>
-
-    <div class="feed-modal-content">
-      <div class="feed-modal-image-frame">
+      <div class="feed-showcase-image">
         <img
           id="feed-modal-image"
           src="images/feed1.jpg"
-          alt="Première proposition de feed Instagram Cymbeline Forever"
+          alt="Proposition de feed Instagram Cymbeline Forever"
         >
       </div>
 
-      <div class="feed-modal-side">
-        <span class="feed-modal-side-label">
-          THE INSTAGRAM EDITION ®
-        </span>
-
-        <div class="feed-modal-side-main">
-          <span class="feed-modal-number" id="feed-modal-number">
-            01 / 05
-          </span>
-
-          <h3
-            data-fr="Une identité en images."
-            data-en="A visual identity in images."
-          >
-            Une identité en images.
-          </h3>
-
-          <p
-            data-fr="Direction visuelle, storytelling et composition d'un feed Instagram pour l'univers bridal."
-            data-en="Visual direction, storytelling and Instagram feed composition for the bridal universe."
-          >
-            Direction visuelle, storytelling et composition d'un feed Instagram pour l'univers bridal.
-          </p>
-        </div>
-
-        <div class="feed-modal-navigation">
-          <button
-            class="feed-modal-arrow"
-            id="feed-prev"
-            type="button"
-            aria-label="Feed précédent"
-            data-aria-fr="Feed précédent"
-            data-aria-en="Previous feed"
-          >
-            ←
-          </button>
-
-          <span id="feed-modal-counter" aria-live="polite">
-            01 — 05
-          </span>
-
-          <button
-            class="feed-modal-arrow"
-            id="feed-next"
-            type="button"
-            aria-label="Feed suivant"
-            data-aria-fr="Feed suivant"
-            data-aria-en="Next feed"
-          >
-            →
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="feed-modal-footer">
-      <span>CYMBELINE FOREVER ©</span>
-
-      <span
-        data-fr="PROPOSITIONS CRÉATIVES / NON PUBLIÉES"
-        data-en="CREATIVE CONCEPTS / UNPUBLISHED"
+      <button
+        class="feed-modal-arrow"
+        id="feed-next"
+        type="button"
+        aria-label="Feed suivant"
+        data-aria-fr="Feed suivant"
+        data-aria-en="Next feed"
       >
-        PROPOSITIONS CRÉATIVES / NON PUBLIÉES
-      </span>
+        →
+      </button>
+
     </div>
+
+    <!-- Miniatures cliquables -->
+
+    <div
+      class="feed-showcase-thumbnails"
+      role="group"
+      aria-label="Choisir un feed Instagram"
+    >
+
+      <button
+        class="feed-showcase-thumb is-active"
+        type="button"
+        data-feed-index="0"
+        aria-label="Voir le feed 1"
+        aria-pressed="true"
+      >
+        <img src="images/feed1.jpg" alt="" loading="lazy">
+      </button>
+
+      <button
+        class="feed-showcase-thumb"
+        type="button"
+        data-feed-index="1"
+        aria-label="Voir le feed 2"
+        aria-pressed="false"
+      >
+        <img src="images/feed2.jpg" alt="" loading="lazy">
+      </button>
+
+      <button
+        class="feed-showcase-thumb"
+        type="button"
+        data-feed-index="2"
+        aria-label="Voir le feed 3"
+        aria-pressed="false"
+      >
+        <img src="images/feed3.jpg" alt="" loading="lazy">
+      </button>
+
+      <button
+        class="feed-showcase-thumb"
+        type="button"
+        data-feed-index="3"
+        aria-label="Voir le feed 4"
+        aria-pressed="false"
+      >
+        <img src="images/feed4.jpg" alt="" loading="lazy">
+      </button>
+
+      <button
+        class="feed-showcase-thumb"
+        type="button"
+        data-feed-index="4"
+        aria-label="Voir le feed 5"
+        aria-pressed="false"
+      >
+        <img src="images/feed5.jpg" alt="" loading="lazy">
+      </button>
+
+    </div>
+
+    <!-- Compteurs conservés pour ton JavaScript,
+         mais invisibles dans le design -->
+
+    <span id="feed-modal-number" hidden></span>
+    <span
+      id="feed-modal-counter"
+      class="feed-showcase-sr-only"
+      role="status"
+      aria-live="polite"
+    ></span>
+
   </div>
 </div>
+
 
     <section class="skills section-pad" id="skills">
       <div class="section-meta reveal">

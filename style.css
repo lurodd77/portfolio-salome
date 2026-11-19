@@ -5964,3 +5964,141 @@ body.feed-modal-open {
     font-size: 24px;
   }
 }
+
+/* ==========================================
+   DESIGN ÉPURÉ — HORS SECTION I LOVE
+   ========================================== */
+
+/* 1. SUPPRIMER LES TRAITS DÉCORATIFS */
+
+.site-header,
+.about-magazine-header,
+.bridal-experience,
+.bridal-top,
+.bridal-footer,
+.bridal-details,
+.history-item,
+.history-item:last-child,
+.education,
+.education-item,
+.education-item:last-child,
+.project-info,
+.skill-item,
+.skill-item:last-child,
+.tools-panel,
+.cymbeline-gallery-heading,
+.contact-direct,
+.contact-footer,
+.contact .social-magazine-header {
+  border: none !important;
+}
+
+/* 2. ENLEVER LES DÉCORATIONS INUTILES */
+
+.note-star,
+.note-arrow,
+.cover-stamp,
+.about-magazine-photo-star,
+.about-magazine-quote-mark,
+.bridal-ornament,
+.bridal-divider,
+.social-card-deco,
+#work .visual-main > span {
+  display: none !important;
+}
+
+/* 3. SUPPRIMER LES DERNIÈRES MINI-MENTIONS */
+
+.cv-download-text small,
+.education-heading > span,
+.tools-panel > span:first-child {
+  display: none !important;
+}
+
+/* 4. ESPACER LES PROJETS SANS TRAITS */
+
+#work .project-info {
+  padding: 20px 0 0 !important;
+  margin: 0;
+}
+
+/* 5. PARCOURS : ESPACE PLUTÔT QUE LIGNES */
+
+#experience .history-item {
+  margin-bottom: 10px;
+}
+
+#experience .history-item summary {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+#experience .education-item {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* 6. COMPÉTENCES : BLOCS DISCRETS */
+
+#skills .skill-item {
+  margin-bottom: 8px;
+}
+
+#skills .skill-toggle {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .045);
+}
+
+#skills .skill-toggle:hover {
+  background: rgba(255, 255, 255, .09);
+}
+
+#skills .tools-panel {
+  margin-top: 45px;
+  padding-top: 0;
+}
+
+/* 7. CONTACT : SANS CADRE SUPERFLU */
+
+#contact .contact-direct {
+  border: none !important;
+  border-radius: 14px;
+}
+
+#contact .social-magazine-grid .social-card {
+  border: none !important;
+}
+
+/* 8. ENLEVER LES CONTOURS DES PETITS TAGS */
+
+#experience .bridal-tags span {
+  border: none !important;
+  background: #EAE0D5;
+  border-radius: 999px;
+}
+
+#skills .tool-tags span {
+  border: none !important;
+  background: rgba(255, 255, 255, .12);
+}
+
+/* 9. UNE VERSION TÉLÉPHONE AÉRÉE */
+
+@media (max-width: 700px) {
+  #about,
+  #experience,
+  #work,
+  #skills,
+  #contact {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  #skills .skill-toggle {
+    min-height: 75px;
+  }
+
+  #work .projects {
+    row-gap: 42px;
+  }
+}
